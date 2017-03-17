@@ -1,0 +1,99 @@
+CIRCUIT D:\Documents and Settings\sicard\Mes documents\software\microwind31\examples\adders\fadd.MSK
+*
+* IC Technology: CMOS 65nm general purpose - 8 Metal copper - strain - SiON oxide
+*
+VDD 1 0 DC 1.00
+VA 16 0 DC 0 PULSE(0.00 1.00 0.48N 0.02N 0.02N 0.48N 1.00N)
+VCarryIn 17 0 DC 0 PULSE(0.00 1.00 1.98N 0.02N 0.02N 1.98N 4.00N)
+VB 18 0 DC 0 PULSE(0.00 1.00 0.98N 0.02N 0.02N 0.98N 2.00N)
+*
+* List of nodes
+* "Sum" corresponds to n°3
+* "N4" corresponds to n°4
+* "N5" corresponds to n°5
+* "CarryOut" corresponds to n°7
+* "N8" corresponds to n°8
+* "N9" corresponds to n°9
+* " xor2_w4" corresponds to n°11
+* "A" corresponds to n°16
+* "CarryIn" corresponds to n°17
+* "B" corresponds to n°18
+*
+* MOS devices
+MN1 0 4 3 0 N1  W= 0.14U L= 0.07U
+MN2 11 17 4 0 N1  W= 0.14U L= 0.07U
+MN3 0 11 5 0 N1  W= 0.14U L= 0.07U
+MN4 0 10 7 0 N1  W= 0.14U L= 0.07U
+MN5 10 18 14 0 N1  W= 0.14U L= 0.07U
+MN6 14 16 10 0 N1  W= 0.14U L= 0.07U
+MN7 0 17 14 0 N1  W= 0.14U L= 0.07U
+MN8 15 18 0 0 N1  W= 0.14U L= 0.07U
+MN9 10 16 15 0 N1  W= 0.14U L= 0.07U
+MN10 0 12 11 0 N1  W= 0.14U L= 0.07U
+MN11 16 18 12 0 N1  W= 0.14U L= 0.07U
+MN12 0 16 13 0 N1  W= 0.14U L= 0.07U
+MP1 1 4 3 1 P1  W= 0.42U L= 0.07U
+MP2 5 17 4 1 P1  W= 0.42U L= 0.07U
+MP3 1 11 5 1 P1  W= 0.42U L= 0.07U
+MP4 1 10 7 1 P1  W= 0.42U L= 0.07U
+MP5 9 18 8 1 P1  W= 0.42U L= 0.07U
+MP6 10 16 9 1 P1  W= 0.42U L= 0.07U
+MP7 8 17 10 1 P1  W= 0.42U L= 0.07U
+MP8 1 18 8 1 P1  W= 0.42U L= 0.07U
+MP9 8 16 1 1 P1  W= 0.42U L= 0.07U
+MP10 1 12 11 1 P1  W= 0.42U L= 0.07U
+MP11 13 18 12 1 P1  W= 0.42U L= 0.07U
+MP12 1 16 13 1 P1  W= 0.42U L= 0.07U
+*
+C2 1 0  3.560fF
+C3 3 0  0.381fF
+C4 4 0  0.350fF
+C5 5 0  0.335fF
+C7 7 0  0.328fF
+C8 8 0  0.506fF
+C9 9 0  0.089fF
+C10 10 0  0.552fF
+C11 11 0  0.727fF
+C12 12 0  0.350fF
+C13 13 0  0.335fF
+C14 14 0  0.251fF
+C15 15 0  0.045fF
+C16 16 0  0.546fF
+C17 17 0  0.433fF
+C18 18 0  0.467fF
+*
+*
+* n-MOS BSIM4 :
+* low leakage
+.MODEL N1 NMOS LEVEL=14 VTHO=0.35 U0=0.055 TOXE= 1.1E-9 LINT=0.010U 
++K1 =0.450 K2=0.100 DVT0=2.000
++DVT1=0.750 LPE0=0.200e-9 ETA0=0.080
++NFACTOR=  1.0 U0=0.055 UA=7.000e-15
++WINT=0.005U LPE0=0.200e-9 
++KT1=-0.050 UTE=-1.800 VOFF=0.010
++XJ=0.150U NDEP=170.000e15 PCLM=1.100
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p
+*
+* p-MOS BSIM4:
+* low leakage
+.MODEL P1 PMOS LEVEL=14 VTHO=-0.32 U0=0.027 TOXE= 1.1E-9 LINT=0.010U 
++K1 =0.500 K2=0.100 DVT0=2.000
++DVT1=0.650 LPE0=0.200e-9 ETA0=0.080
++NFACTOR=  1.1 U0=0.027 UA=4.800e-15
++WINT=0.005U LPE0=0.200e-9 
++KT1=-0.060 UTE=-1.800 VOFF=0.010
++XJ=0.150U NDEP=170.000e15 PCLM=0.700
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p
+*
+* Transient analysis
+*
+* (Winspice)
+.options temp=27.0
+.control
+tran 0.1N 2.00N
+print  V(7) V(3) V(16) V(18) V(17) > out.txt
+plot  V(7) V(3) V(16) V(18) V(17)
+.endc
+.END

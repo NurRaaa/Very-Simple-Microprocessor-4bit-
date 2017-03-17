@@ -1,0 +1,33 @@
+VERSION 16/04/2009 16:54:05
+FIG #D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\examples\misc\Vref06V.MSK
+BB(77,14,117,53)
+SIMU #2.00
+ZOOM(53,-1,121,55)
+REC(97,43,1,4,DN)
+REC(93,17,4,6,DN)
+REC(86,41,12,6,DN)
+REC(77,41,5,6,DN)
+REC(77,17,5,6,DN)
+REC(82,41,4,6,DN)
+REC(82,17,11,6,DN)
+REC(78,44,2,2,CO)
+REC(78,20,2,2,CO)
+REC(95,44,2,2,CO)
+REC(83,26,2,2,CO)
+REC(83,50,2,2,CO)
+REC(82,14,11,11,PO)
+REC(82,25,4,4,PO)
+REC(82,38,4,15,PO)
+REC(77,43,4,10,ME)
+REC(98,34,19,3,ME)
+REC(77,19,4,10,ME)
+REC(81,49,5,4,ME)
+REC(81,25,17,4,ME)
+REC(94,29,4,18,ME)
+TITLE 95 17  #Vss
+$0 1000 0 
+TITLE 115 36  #Vref
+$v 1000 0 
+TITLE 79 51  #Vdd
+$1 1000 0 
+FFIG D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\examples\misc\Vref06V.MSK

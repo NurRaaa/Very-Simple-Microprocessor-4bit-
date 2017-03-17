@@ -1,0 +1,30 @@
+* File name: D:\Documents and Settings\sicard\Mes documents\software\Dsch\Dsch35\dsch35 full\examples\basic\nand2Cmos.sch
+* Software version: DSCH 3.5
+* Created 09/06/2009 15:37:47
+*
+* Voltage and current sources
+*
+VBTN1 2 0 DC 0 PULSE(0 1.0 1.00N 0.1N 0.1N 1.00N 3.00N )
+vdd 1 0 DC 1.0
+VBTN2 5 0 DC 0 PULSE(0 1.0 2.00N 0.1N 0.1N 2.00N 5.00N )
+*
+* Passive devices
+*
+*
+* Active devices
+*
+MN1 0 2 3 0 MN W=1.0u L=0.12u
+MP1 1 2 4 1 MP W=2.0u L=0.12u
+MP2 1 5 4 1 MP W=2.0u L=0.12u
+MN2 3 5 4 3 MN W=1.0u L=0.12u
+* Warning: "spice.lib" not found in "D:\Documents and Settings\sicard\Mes documents\software\Dsch\Dsch35\dsch35 full\system", model not declared
+.TRAN 0.1ns 250ns
+* Dump time and volts in "nand2Cmos.txt"
+.control
+run
+set nobreak
+print  V(2) V(5)  V(4)  > nand2Cmos.txt
+plot  V(2) V(5)  V(4) 
+.endc
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END

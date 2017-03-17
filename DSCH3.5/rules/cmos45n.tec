@@ -1,0 +1,23 @@
+DSCH 3.5 - technology file
+NAME "CMOS 45nm"
+VERSION 08.09.2009
+* Time unit for simulation
+TIMEUNIT = 0.005
+* Supply voltage
+VDD = 1.0
+* Typical gate delay in ns
+TDelay = 0.003
+THvDelay = 0.008
+THsDelay = 0.002
+* Typical wire delay in ns
+TWireDelay = 0.0015
+* Typical current in mA
+TCurrent = 0.08
+* Default MOS length and width
+ML  = "0.05u"
+MHVL = "0.18u"
+MNW = "0.3u"
+MPW = "0.5u"
+*
+* End cmos45n.tec
+*

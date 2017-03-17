@@ -1,0 +1,23 @@
+Microwind Version 3.1
+RC information
+D:\Documents and Settings\sicard\Mes documents\microwind31\examples\Add4.MSK
+generated on 25/05/2006, 16:39:57
+> 0.026ns, "N17", c=3.9fF, r=680ohm
+> 0.026ns, "N18", c=3.9fF, r=680ohm
+> 0.026ns, "CarryOut", c=3.9fF, r=680ohm
+> 0.016ns, "N32", c=2.5fF, r=430ohm
+> 0.016ns, "N33", c=2.5fF, r=430ohm
+> 0.016ns, "N34", c=2.5fF, r=430ohm
+> 0.016ns, " xor2_w4", c=2.5fF, r=430ohm
+> 0.013ns, "N10", c=2.0fF, r=366ohm
+> 0.013ns, "N7", c=2.0fF, r=366ohm
+> 0.013ns, "N8", c=2.0fF, r=366ohm
+> 0.013ns, "N9", c=2.0fF, r=366ohm
+> 0.013ns, "N36", c=2.0fF, r=482ohm
+> 0.013ns, "N37", c=2.0fF, r=482ohm
+> 0.013ns, "N38", c=2.0fF, r=482ohm
+> 0.013ns, "N39", c=2.0fF, r=482ohm
+> 0.007ns, "N28", c=2.2fF, r=522ohm
+> 0.007ns, "N29", c=2.2fF, r=522ohm
+> 0.007ns, "N30", c=2.2fF, r=522ohm
+> 0.007ns, "N31", c=2.2fF, r=522ohm

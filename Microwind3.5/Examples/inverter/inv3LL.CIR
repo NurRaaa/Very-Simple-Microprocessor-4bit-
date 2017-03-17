@@ -1,0 +1,60 @@
+CIRCUIT D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\examples\inverter\inv3LL.MSK
+*
+* IC Technology: CMOS 45nm - HighK/Metal/Strain - 8 Metal copper
+*
+VDD 1 0 DC 1.00
+*
+* List of nodes
+* "N2" corresponds to n°2
+* "s3" corresponds to n°4
+* "s2" corresponds to n°5
+* "s1" corresponds to n°6
+*
+* MOS devices
+MN1 0 5 4 0 N2  W= 0.12U L= 0.04U
+MN2 0 6 5 0 N2  W= 0.12U L= 0.04U
+MN3 0 4 6 0 N2  W= 0.12U L= 0.04U
+MP1 1 5 4 1 P2  W= 0.30U L= 0.04U
+MP2 1 6 5 1 P2  W= 0.30U L= 0.04U
+MP3 1 4 6 1 P2  W= 0.30U L= 0.04U
+*
+C3 1 0  0.577fF
+C4 4 0  0.433fF
+C5 5 0  0.208fF
+C6 6 0  0.210fF
+*
+*
+* high speed
+.MODEL N2 NMOS LEVEL=14 VTHO=0.19 U0=0.020 TOXE= 3.5E-9 LINT=0.004U 
++K1 =0.750 K2=0.100 DVT0=2.300
++DVT1=0.540 LPE0=2.200e-9 ETA0=0.080
++NFACTOR=  0.1 UA=6.300e-15
++WINT=0.020U UC=-0.047e-15 PSCBE1=230.000e6
++KT1=-0.060 UTE=-1.800
++XJ=0.150U NDEP=170.000e15 PCLM=1.100
++VSAT=100000.000 VOFF=0.000
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p
+*
+* high speed
+.MODEL P2 PMOS LEVEL=14 VTHO=-0.12 U0=0.018 TOXE= 3.5E-9 LINT=0.004U 
++K1 =0.650 K2=0.100 DVT0=2.300
++DVT1=0.540 LPE0=2.200e-9 ETA0=0.080
++NFACTOR=  0.1 UA=9.500e-15
++WINT=0.020U UC=-0.047e-15 PSCBE1=230.000e6
++KT1=-0.060 UTE=-1.800
++XJ=0.150U NDEP=170.000e15 PCLM=0.700
++VSAT=60000.000 VOFF=0.000
++CGSO=100.0p CGDO=100.0p
++CGBO= 60.0p
+*
+* Transient analysis
+*
+* (Winspice)
+.options temp=27.0
+.control
+tran 0.1N 0.50N
+print  V(4) V(5) V(4) V(6) > out.txt
+plot  V(4) V(5) V(4) V(6)
+.endc
+.END

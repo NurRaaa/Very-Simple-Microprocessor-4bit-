@@ -1,0 +1,17 @@
+USER SYMBOL by DSCH 3.5
+DATE 14/06/2010 11:53:59
+SYM  #sym5
+BB(0,0,40,30)
+TITLE 10 -7  #sym5
+MODEL 6000
+REC(5,5,30,20)
+LIG(5,5,5,25)
+LIG(5,5,35,5)
+LIG(35,5,35,25)
+LIG(35,25,5,25)
+VLG module sym5( );
+VLG  wire w2,w3,w4,w5,w6;
+VLG  not #(1) inv_1(w3,w2);
+VLG  and #(2) and2_2(w6,w4,w5);
+VLG endmodule
+FSYM

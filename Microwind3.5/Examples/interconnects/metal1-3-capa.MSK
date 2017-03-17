@@ -1,0 +1,27 @@
+VERSION 16/05/2010 17:27:06
+FIG #D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\microwind35 full\Examples\interconnects\metal1-3-capa.MSK
+BB(0,9,56,65)
+SIMU #0.50
+ZOOM(-28,-13,150,165)
+REC(5,9,3,56,ME)
+REC(11,9,3,56,ME)
+REC(17,9,3,56,ME)
+REC(23,9,3,56,ME)
+REC(29,9,3,56,ME)
+REC(35,9,3,56,ME)
+REC(41,9,3,56,ME)
+REC(0,15,56,3,M2)
+REC(0,22,56,3,M2)
+REC(0,29,56,3,M2)
+REC(0,36,56,3,M2)
+REC(0,43,56,3,M2)
+REC(0,57,56,3,M2)
+REC(0,50,56,3,M2)
+REC(34,9,3,56,M3)
+REC(27,9,3,56,M3)
+REC(20,9,3,56,M3)
+REC(13,9,3,56,M3)
+REC(6,9,3,56,M3)
+REC(48,9,3,56,M3)
+REC(41,9,3,56,M3)
+FFIG D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\microwind35 full\Examples\interconnects\metal1-3-capa.MSK

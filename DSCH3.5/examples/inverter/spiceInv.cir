@@ -1,0 +1,116 @@
+* File name: D:\Documents and Settings\sicard\Mes documents\software\Dsch\Dsch35\dsch35 full\examples\inverter\spiceInv.sch
+* Software version: DSCH 3.5
+* Created 19/06/2009 20:56:35
+*
+* Voltage and current sources
+*
+vdd 1 0 DC 1.0
+VBTN1 2 0 AC 1 0 DC 0 PULSE(0 1.0 1.00N 0.1N 0.1N 1.00N 3.00N )
+*
+* Passive devices
+*
+C1 4 0 0.01pF
+R1 3 4 50
+*
+* Active devices
+*
+MP1 1 2 3 1 MP W=2u L=0.2u
+MN1 0 2 3 0 MN W=1.0u L=0.2u
+* Standard MOS and diode library
+* Author: etienne.sicard@insa-toulouse.fr
+* Software : DSCH
+* last revision : June 18, 2009
+* Compatible: WinSpice www.winspice.com
+*
+* Note: Dsch will use "MN" and "MP" default calls for Mos devices
+* "DIOD" for diodes and "CLAMP" for clamp diodes
+* Note: other MOS models are provided for several technologies
+*
+*---Diodes------------
+* Simple diode
+.MODEL DIOD D RS=5 BV=15 N=1.0
+*
+* Clamp diode
+.MODEL CLAMP D RS=2 BV=10 N=1.2
+*
+*---Capa model---------
+* Add a first order temperature influence through TC1
+.MODEL CMODEL CAP(TC1=-0.001)
+*
+*---MOS----------------
+* Defaul Mos models : corresponds to 0.35µm, 3.3V
+* Model 3 n-channel MOS
+.MODEL  MN  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.5
++ TOX=5e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11           RD=1             RS=1
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 p-channel MOS
+.MODEL  MP  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.01         ETA=0.001
++ DELTA=0.0          UO=250             VMAX=100E3         VTO=-0.5
++ TOX=5E-9           XJ=0.1U            LD=0.0U            NSUB=1E+18
++ NSS=0.0            NFS=7E11           RD=1               RS=1
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+*
+* Mos models in 0.25µm
+* Model 3 n-channel MOS
+.MODEL  MN025  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.4
++ TOX=3e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11           RD=1             RS=1
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 p-channel MOS
+.MODEL  MP025  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.01         ETA=0.001
++ DELTA=0.0          UO=250             VMAX=300E3         VTO=-0.4
++ TOX=3E-9           XJ=0.1U            LD=0.0U             NSUB=1E+18
++ NSS=0.0            NFS=7E11           RD=1             RS=1
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+*
+* Mos models in 0.12µm
+* Model 3 n-channel MOS
+.MODEL  MN012  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.35
++ TOX=2e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11           RD=1             RS=1
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 p-channel MOS
+.MODEL  MP012  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.01         ETA=0.001
++ DELTA=0.0          UO=250             VMAX=300E3         VTO=-0.35
++ TOX=2E-9          XJ=0.1U             LD=0.0U            NSUB=1E+18
++ NSS=0.0            NFS=7E11           RD=1             RS=1
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+*
+.AC DEC 10 1MEG 1G 
+* Dump time and volts in "spiceInv.txt"
+.control
+run
+set nobreak
+print  V(2)  V(4)  > spiceInv.txt
+plot  V(2)  V(4) 
+.endc
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END

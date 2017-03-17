@@ -1,0 +1,21 @@
+VERSION 16/05/2010 17:02:36
+FIG #D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\microwind35 full\Examples\interconnects\metal1-5.MSK
+BB(-10,27,46,69)
+SIMU #0.50
+ZOOM(-40,-8,76,84)
+REC(-10,27,56,3,M2)
+REC(-10,35,56,3,M3)
+REC(-10,44,56,3,M3)
+REC(-10,54,56,4,M4)
+REC(-10,64,56,5,M5)
+TITLE 4 28  #metal 1
+$- 1000 0 
+TITLE 4 36  #metal 2
+$- 1000 0 
+TITLE 4 45  #metal 3
+$- 1000 0 
+TITLE 6 65  #metal 5
+$- 1000 0 
+TITLE 6 57  #metal 4
+$- 1000 0 
+FFIG D:\Documents and Settings\sicard\Mes documents\software\Microwind\microwind35\microwind35 full\Examples\interconnects\metal1-5.MSK

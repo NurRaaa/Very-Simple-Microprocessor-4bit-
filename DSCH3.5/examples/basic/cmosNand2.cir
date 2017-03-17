@@ -1,0 +1,51 @@
+* File name: D:\Documents and Settings\sicard\Mes documents\software\Dsch\Dsch35\dsch35 full\examples\basic\cmosNand2.sch
+* Software version: DSCH 3.5
+* Created 09/06/2009 15:42:14
+*
+* Voltage and current sources
+*
+vdd 1 0 DC 1.0
+VBTN1 3 0 DC 0 PULSE(0 1.0 1.00N 0.1N 0.1N 1.00N 3.00N )
+VBTN2 5 0 DC 0 PULSE(0 1.0 2.00N 0.1N 0.1N 2.00N 5.00N )
+*
+* Passive devices
+*
+*
+* Active devices
+*
+MN1 2 3 4 2 MN W=2.0u L=0.25u
+MP1 1 3 4 1 MP W=2.0u L=0.25u
+MP2 1 5 4 1 MP W=2.0u L=0.25u
+MN2 0 5 2 0 MN W=2.0u L=0.25u
+*
+* Mos models in 0.12µm
+* Model 3 n-channel MOS
+.MODEL  TN  NMOS
++ LEVEL=3            TPG=+1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.1        ETA=0.002
++ DELTA=0.0          UO=620             VMAX=100E3       VTO=0.35
++ TOX=3e-9           XJ=0.1U            LD=0.00U         NSUB=1E+18
++ NSS=0.2            NFS=7E11
++ CJ=4.091E-4        MJ=0.307           PB=1.0
++ CJSW=3.078E-10     MJSW=1.0E-2
++ CGSO=3.93E-10      CGDO=3.93E-10
+* Model 3 p-channel MOS
+.MODEL  TP  PMOS
++ LEVEL=3            TPG=-1
++ GAMMA=0.2          THETA=0.5          KAPPA=0.01         ETA=0.001
++ DELTA=0.0          UO=250             VMAX=500E3         VTO=-0.35
++ TOX=3E-9          XJ=0.1U             LD=0.0U             NSUB=1E+18
++ NSS=0.0            NFS=7E11
++ CJ=6.852E-4        MJ=0.429           PB=1.0
++ CJSW=5.217E-10     MJSW=0.351
++ CGSO=7.29E-10      CGDO=7.29E-10
+.TRAN 0.1ns 250ns
+* Dump time and volts in "cmosNand2.txt"
+.control
+run
+set nobreak
+print  V(3) V(5)  V(4)  > cmosNand2.txt
+plot  V(3) V(5)  V(4) 
+.endc
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END

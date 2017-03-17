@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>DSCH version 3.5 - Simulate menu</TITLE>
+<META NAME="Version" CONTENT="8.0.3429">
+<link rel="stylesheet" href="etienne.css" type="text/css">
+<META NAME="Date" CONTENT="08/12/05">
+<style type="text/css">
+<!--
+.Style1 {
+	font-family: Symbol;
+	font-weight: bold;
+}
+-->
+</style></HEAD>
+<BODY class="basic">
+<b>
+<h1>Simulate Menu</h1>
+</b>
+<br>
+  <h2><a name="floating"></a>Check Floating Lines </h2>
+  <blockquote>
+    <p>The command <B>Insert -&gt; User Symbol</B> is used to add a user defined symbol to the existing schematic diagram. The user symbol is created using the command <B>File -&gt; Schema To new Symbol</B>. The inserted symbol can be fixed at the desired location.</p>
+    <p></p>
+</blockquote>
+<h2><a name="critical"></a>Show Critical Path </h2>
+<blockquote>
+    <P> <span class="basic"><span >The critical path is the series of logic gates between the output and input with the longest propagation delay. The command <b>Simulate </b></span><span class="Style1">-&gt;</span><b><span >Show Critical Path</span></b><span > shows the graph of the critical path. The list of symbols and cumulated delays which build the critical path are also listed.</span></span></P>
+    <P><img src="criticalpath.GIF" width="700" height="510"></P>
+</blockquote>
+    <h2><a name="simulate"></a>Start Simulation </h2>
+    <blockquote>
+      <p class=basic><span >The command &quot;<b>Start Simulation</b>&quot; launches the electrical net extraction and the logic simulation. The simulation speed may be controlled by the cursor &quot;Fast-Slow&quot;. The simulation may be paused, run step by step and stopped. By default, the logic state of all interconnects is made visible. You may also see each pin state by a tic in front of &quot;Show pin state&quot;, or see the details of each symbol using the tic in front of &quot;Symbol State&quot;. </span></p>
+      <p class=basic><img src="simulation.GIF" width="658" height="245"><span >
+        <![if !supportEmptyParas]>
+</span></p>
+</blockquote>
+    <h2><a name="fault"></a>Circuit Testing - Fault simulation (<a href="http://www.microwind.org/test-dsch35.pdf">Application note</a>)</h2>
+    <blockquote>
+      <p class="basic">Load or design a schematic diagram including at least one input and one output. Click  &ldquo;Simulate -&gt; Circuit Testing<b><span
+></span></b> - Fault Simulation&quot;. The screen shown below appears. The truth-table is displayed for all inputs. In the example below (full-adder loaded from examples/adder/fadd.SCH&quot;), the inputs A,B and C are found in the design. </p>
+      <p class="basic">&nbsp;</p>
+      <p class="basic">STEP 1 - GET TRUTH TABLE. Click &quot;Logic Simulation&quot; and then &quot;Extract Truth-table&quot; to complete the truth-table. We can see that the outpus &quot;Carry&quot; and &quot;Sum&quot; correspond to a full adder. </p>
+      <p class="basic">established.</p>
+      <p class="basic">&nbsp;</p>
+      <p class="basic"><img src="test1.GIF" width="744" height="615"></p>
+      <p class="basic">&nbsp;</p>
+      <p class="basic">STEP 2 - INJECT FAULT. Click &quot;Next&quot;. The screen shown below appears.The default type of fault is &quot;Stuck-at-0&quot;, which is applied to inputs A, B and C. Consequently three lines appear: &quot;A@0&quot; (Input A stuck-at-0), B@0 and C@0. Click &quot;Generate faults&quot;. Click &quot;Simulate Fault 1&quot;, then &quot;Extract fault response&quot;. The first line is filled. Click &quot;Simulate Fault 2&quot;, then &quot;Extract fault response&quot;. The second line is filled. Click &quot;Simulate Fault 3&quot;, then &quot;Extract fault response&quot;. The third line is filled, as displayed below.</p>
+      <p class="basic"><img src="test2.GIF" width="744" height="615"></p>
+      <p class="basic">&nbsp;</p>
+      <p class="basic">STEP 3 - ANALYSE VECTORS. The third step consists in selecting the minimum set of test vectors to achieve 100% coverage. In the figure below, the test vectors &quot;011&quot; (A=0, B=1, C=1) and &quot;101&quot; (A=1, B=0, C=1) enable to detect the three potential errors A@0 (A stuck at 0), B@0 and C@0.</p>
+      <p class=basic>&nbsp;</p>
+      <p class=basic><img src="test3.GIF" width="744" height="615"></p>
+      <p class=basic>&nbsp;</p>
+      <p class=basic>An application note is proposed that introduces the concept for fault simulation at logic level in Dsch35. The  mechanisms for logic fault injection, simulation and optimum test vector  extraction are described. The testing features of Dsch35 are illustrated with a  set of logic designs. Click <a href="http://www.microwind.org/test-dsch35.pdf">here</a> to download the application note.</p>
+      <p class=basic><a href="http://www.microwind.org/test-dsch35.pdf"><img src="appnotetest.GIF" width="643" height="451"></a></p>
+</blockquote>
+<h2><a name="options"></a>Simulate Options </h2>
+    <blockquote>
+      <p class="basic"><span >The simulation parameters (<b>Simulation Options</b>) are: the simulation step (10ps by default), the gate delay, wire delay, supply voltage, and elementary gate current. This parameters are loaded from .TEC files at initialization or with the command <b>File </b></span><b><span><span
+>-&gt;</span></span></b><b><span
+> Select Foundry.</span></b></p>
+      <p><img src="simulateoptions.GIF" width="697" height="406"></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <p><A HREF="index.htm">Back</A></p>
+</BODY>
+</HTML>
