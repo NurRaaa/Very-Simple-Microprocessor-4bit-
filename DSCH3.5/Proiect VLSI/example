@@ -1,0 +1,516 @@
+DSCH 3.5
+VERSION 5/5/2017 2:43:16 PM
+BB(-14,-179,240,-15)
+SYM  #button
+BB(-14,-179,-5,-171)
+TITLE -10 -175  #MainClock
+MODEL 59
+PROP                                                                                                                                   
+REC(-13,-178,6,6,r)
+VIS 1
+PIN(-5,-175,0.000,0.000)MainClock
+LIG(-6,-175,-5,-175)
+LIG(-14,-171,-14,-179)
+LIG(-6,-171,-14,-171)
+LIG(-6,-179,-6,-171)
+LIG(-14,-179,-6,-179)
+LIG(-13,-172,-13,-178)
+LIG(-7,-172,-13,-172)
+LIG(-7,-178,-7,-172)
+LIG(-13,-178,-7,-178)
+FSYM
+SYM  #button
+BB(-14,-154,-5,-146)
+TITLE -10 -150  #MainClear
+MODEL 59
+PROP                                                                                                                                   
+REC(-13,-153,6,6,r)
+VIS 1
+PIN(-5,-150,0.000,0.000)MainClear
+LIG(-6,-150,-5,-150)
+LIG(-14,-146,-14,-154)
+LIG(-6,-146,-14,-146)
+LIG(-6,-154,-6,-146)
+LIG(-14,-154,-6,-154)
+LIG(-13,-147,-13,-153)
+LIG(-7,-147,-13,-147)
+LIG(-7,-153,-7,-147)
+LIG(-13,-153,-7,-153)
+FSYM
+SYM  #VsmRingCounter4
+BB(55,-140,95,-90)
+TITLE 65 -142  #VsmRingCounter4
+MODEL 6000
+PROP                                                                                                                                   
+REC(60,-135,30,40,r)
+VIS 5
+PIN(55,-120,0.000,0.000)invClear
+PIN(55,-130,0.000,0.000)Phase_Count
+PIN(95,-100,0.006,0.002)Phase0
+PIN(95,-110,0.006,0.002)Phase1
+PIN(95,-120,0.006,0.002)Phase2
+PIN(95,-130,0.006,0.002)Phase3
+LIG(55,-120,60,-120)
+LIG(55,-130,60,-130)
+LIG(90,-100,95,-100)
+LIG(90,-110,95,-110)
+LIG(90,-120,95,-120)
+LIG(90,-130,95,-130)
+LIG(60,-135,60,-95)
+LIG(60,-135,90,-135)
+LIG(90,-135,90,-95)
+LIG(90,-95,60,-95)
+VLG module VsmRingCounter4( invClear,Phase_Count,Phase0,Phase1,Phase2,Phase3);
+VLG input invClear,Phase_Count;
+VLG output Phase0,Phase1,Phase2,Phase3;
+VLG wire w3,w4,w6,w8,w9,w11,w12,w14;
+VLG wire w15,;
+VLG xor #(16) xor2_1(Phase2,w3,w4);
+VLG xor #(16) xor2_2(Phase1,w6,w3);
+VLG dreg #(19) dreg7_3(w6,w11,w8,w9,Phase_Count);
+VLG dreg #(19) dreg8_4(w12,w8,w4,w9,Phase_Count);
+VLG dreg #(12) dreg9_5(w4,w14,w3,w9,Phase_Count);
+VLG dreg #(12) dreg10_6(w3,w15,w6,w9,Phase_Count);
+VLG not #(31) inv_7(w9,invClear);
+VLG xor #(16) xor2_8(Phase3,w4,w12);
+VLG xor #(16) xor2_9(Phase0,w12,w11);
+VLG endmodule
+FSYM
+SYM  #VsmMicroInstruction
+BB(150,-135,190,-15)
+TITLE 160 -142  #VsmMicroInstruction
+MODEL 6000
+PROP                                                                                                                                   
+REC(155,-130,30,110,r)
+VIS 5
+PIN(150,-125,0.000,0.000)Phase3
+PIN(150,-105,0.000,0.000)Phase1
+PIN(150,-95,0.000,0.000)Phase0
+PIN(150,-55,0.000,0.000)InstrIn0
+PIN(150,-65,0.000,0.000)InstrIn1
+PIN(150,-75,0.000,0.000)InstrIn2
+PIN(150,-85,0.000,0.000)InstrIn3
+PIN(150,-115,0.000,0.000)Phase2
+PIN(190,-105,0.006,0.002)LoadOut
+PIN(190,-95,0.006,0.002)LoadInst
+PIN(190,-35,0.006,0.002)EnableA
+PIN(190,-55,0.006,0.002)EnableIn
+PIN(190,-75,0.006,0.002)LoadA
+PIN(190,-125,0.006,0.002)ReadMem
+PIN(190,-115,0.006,0.002)ProgCount
+PIN(190,-45,0.006,0.002)EnableAlu
+PIN(190,-25,0.006,0.002)AddSub
+PIN(190,-85,0.006,0.002)LoadB
+PIN(190,-65,0.006,0.002)EnableInstr
+LIG(150,-125,155,-125)
+LIG(150,-105,155,-105)
+LIG(150,-95,155,-95)
+LIG(150,-55,155,-55)
+LIG(150,-65,155,-65)
+LIG(150,-75,155,-75)
+LIG(150,-85,155,-85)
+LIG(150,-115,155,-115)
+LIG(185,-105,190,-105)
+LIG(185,-95,190,-95)
+LIG(185,-35,190,-35)
+LIG(185,-55,190,-55)
+LIG(185,-75,190,-75)
+LIG(185,-125,190,-125)
+LIG(185,-115,190,-115)
+LIG(185,-45,190,-45)
+LIG(185,-25,190,-25)
+LIG(185,-85,190,-85)
+LIG(185,-65,190,-65)
+LIG(155,-130,155,-20)
+LIG(155,-130,185,-130)
+LIG(185,-130,185,-20)
+LIG(185,-20,155,-20)
+VLG module VsmMicroInstruction( Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2,
+VLG LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu,
+VLG AddSub,LoadB,EnableInstr);
+VLG input Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2;
+VLG output LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu;
+VLG output AddSub,LoadB,EnableInstr;
+VLG wire w2,w4,w6,w7,w13,w16,w17,w20;
+VLG wire w23,w25,w27,w28,w29,w32,w34,w35;
+VLG wire w36,w37,w39,w40,w41,w42;
+VLG and #(86) and2_1(w4,w2,Phase2);
+VLG and #(86) and2_2(w6,w2,Phase3);
+VLG nmos #(101) nmos_3(AddSub,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_4(ProgCount,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_5(EnableIn,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_6(LoadOut,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_7(LoadOut,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_8(AddSub,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_9(LoadB,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_10(ReadMem,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_11(LoadB,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_12(LoadOut,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_13(LoadInst,vss,w4); // 1.0u 0.12u
+VLG not #(45) inv_14(w20,InstrIn3);
+VLG nmos #(101) nmos_15(EnableIn,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_16(LoadInst,vss,w6); // 1.0u 0.12u
+VLG and #(30) and4_17(w2,InstrIn0,w23,InstrIn2,w20);
+VLG nmos #(101) nmos_18(LoadB,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_19(AddSub,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_20(ReadMem,vss,w6); // 1.0u 0.12u
+VLG probe #(1) probe_21(w2); // 1 Load(0101)
+VLG nmos #(101) nmos_22(ProgCount,vdd,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_23(LoadInst,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_24(LoadInst,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_25(ProgCount,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_26(ReadMem,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_27(ProgCount,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_28(EnableIn,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_29(LoadB,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_30(LoadInst,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_31(LoadInst,vdd,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_32(ProgCount,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_33(EnableIn,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_34(ReadMem,vdd,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_35(EnableIn,vss,w25); // 1.0u 0.12u
+VLG and #(30) and4_36(w28,InstrIn0,InstrIn1,w27,w20);
+VLG and #(86) and2_37(w25,w28,Phase2);
+VLG nmos #(101) nmos_38(LoadB,vss,w29); // 1.0u 0.12u
+VLG probe #(1) probe_39(w32); // 1 In(0100)
+VLG nmos #(101) nmos_40(EnableAlu,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_41(EnableIn,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_42(LoadA,vdd,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_43(LoadA,vss,Phase1); // 1.0u 0.12u
+VLG probe #(1) probe_44(w28); // 1 Out(0011)
+VLG nmos #(101) nmos_45(EnableA,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_46(EnableA,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_47(LoadA,vss,Phase0); // 1.0u 0.12u
+VLG and #(86) and2_48(w13,w28,Phase3);
+VLG probe #(1) probe_49(w34); // 1 Sub(0010)
+VLG probe #(1) probe_50(w35); // 1 Add(0001)
+VLG nmos #(101) nmos_51(EnableAlu,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_52(EnableAlu,vss,Phase1); // 1.0u 0.12u
+VLG probe #(1) probe_53(w36); // 1 Nop(0000)
+VLG nmos #(101) nmos_54(EnableA,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_55(EnableA,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_56(LoadA,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_57(LoadA,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_58(LoadB,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_59(EnableA,vdd,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_60(EnableInstr,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_61(EnableAlu,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_62(EnableAlu,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_63(EnableInstr,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_64(AddSub,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_65(AddSub,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_66(LoadOut,vss,Phase1); // 1.0u 0.12u
+VLG and #(30) and4_67(w36,w39,w23,w27,w20);
+VLG nmos #(101) nmos_68(LoadOut,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_69(LoadOut,vss,w6); // 1.0u 0.12u
+VLG not #(24) inv_70(w39,InstrIn0);
+VLG not #(31) inv_71(w27,InstrIn2);
+VLG not #(31) inv_72(w23,InstrIn1);
+VLG and #(86) and2_73(w40,w36,Phase3);
+VLG and #(86) and2_74(w41,w36,Phase2);
+VLG nmos #(101) nmos_75(ProgCount,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_76(EnableA,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_77(ProgCount,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_78(ReadMem,vdd,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_79(LoadB,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_80(LoadInst,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_81(LoadInst,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_82(LoadB,vdd,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_83(EnableAlu,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_84(ReadMem,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_85(LoadA,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_86(ProgCount,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_87(EnableIn,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_88(EnableInstr,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_89(LoadA,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_90(EnableIn,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_91(LoadA,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_92(EnableA,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_93(EnableA,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_94(LoadA,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_95(EnableInstr,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_96(EnableAlu,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_97(EnableAlu,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_98(EnableInstr,vdd,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_99(AddSub,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_100(LoadOut,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_101(LoadOut,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_102(AddSub,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_103(AddSub,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_104(LoadOut,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_105(LoadOut,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_106(AddSub,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_107(EnableInstr,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_108(EnableAlu,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_109(EnableAlu,vdd,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_110(LoadA,vdd,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_111(EnableA,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_112(EnableA,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_113(LoadA,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_114(EnableIn,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_115(EnableA,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_116(EnableA,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_117(ReadMem,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_118(LoadB,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_119(EnableIn,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_120(ProgCount,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_121(ReadMem,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_122(LoadA,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_123(LoadB,vss,w41); // 1.0u 0.12u
+VLG and #(30) and4_124(w35,InstrIn0,w23,w27,w20);
+VLG nmos #(101) nmos_125(LoadInst,vss,w29); // 1.0u 0.12u
+VLG nmos #(101) nmos_126(LoadInst,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_127(LoadB,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_128(ReadMem,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_129(EnableInstr,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_130(EnableAlu,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_131(ProgCount,vss,w42); // 1.0u 0.12u
+VLG and #(86) and2_132(w29,w35,Phase3);
+VLG and #(86) and2_133(w42,w35,Phase2);
+VLG and #(86) and2_134(w17,w34,Phase2);
+VLG and #(86) and2_135(w7,w34,Phase3);
+VLG nmos #(101) nmos_136(EnableAlu,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_137(ProgCount,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_138(EnableInstr,vss,w40); // 1.0u 0.12u
+VLG nmos #(101) nmos_139(ReadMem,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_140(ReadMem,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_141(EnableInstr,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_142(LoadInst,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_143(LoadInst,vss,w7); // 1.0u 0.12u
+VLG and #(30) and4_144(w34,w39,InstrIn1,w27,w20);
+VLG nmos #(101) nmos_145(LoadB,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_146(EnableIn,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_147(ReadMem,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_148(AddSub,vss,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_149(ProgCount,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_150(EnableIn,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_151(LoadB,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_152(AddSub,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_153(AddSub,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_154(LoadOut,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_155(LoadOut,vdd,w25); // 1.0u 0.12u
+VLG nmos #(101) nmos_156(AddSub,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_157(LoadOut,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_158(LoadOut,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_159(AddSub,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_160(EnableInstr,vss,w41); // 1.0u 0.12u
+VLG nmos #(101) nmos_161(EnableAlu,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_162(EnableAlu,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_163(EnableInstr,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_164(LoadA,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_165(EnableA,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_166(EnableA,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_167(LoadA,vdd,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_168(EnableIn,vdd,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_169(EnableIn,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_170(ProgCount,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_171(ReadMem,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_172(LoadB,vss,w37); // 1.0u 0.12u
+VLG and #(30) and4_173(w32,w39,w23,InstrIn2,w20);
+VLG nmos #(101) nmos_174(LoadInst,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_175(LoadInst,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_176(ReadMem,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_177(ProgCount,vss,w16); // 1.0u 0.12u
+VLG and #(86) and2_178(w37,w32,Phase3);
+VLG and #(86) and2_179(w16,w32,Phase2);
+VLG nmos #(101) nmos_180(EnableInstr,vdd,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_181(EnableInstr,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_182(EnableInstr,vdd,Phase1); // 1.0u 0.12u
+VLG endmodule
+FSYM
+SYM  #Arrow
+BB(45,-178,55,-172)
+TITLE 45 -180  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(45,-175,0.000,0.000)in
+LIG(45,-175,55,-175)
+LIG(53,-177,55,-175)
+LIG(53,-173,55,-175)
+FSYM
+SYM  #Arrow
+BB(35,-153,45,-147)
+TITLE 35 -155  #Clear
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(35,-150,0.000,0.000)in
+LIG(35,-150,45,-150)
+LIG(43,-152,45,-150)
+LIG(43,-148,45,-150)
+FSYM
+SYM  #Arrow
+BB(0,-133,10,-127)
+TITLE 0 -135  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(0,-130,0.000,0.000)in
+LIG(0,-130,10,-130)
+LIG(8,-132,10,-130)
+LIG(8,-128,10,-130)
+FSYM
+SYM  #Arrow
+BB(0,-123,10,-117)
+TITLE 0 -125  #Clear
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(0,-120,0.000,0.000)in
+LIG(0,-120,10,-120)
+LIG(8,-122,10,-120)
+LIG(8,-118,10,-120)
+FSYM
+SYM  #Arrow
+BB(230,-128,240,-122)
+TITLE 230 -130  #ReadMem
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-125,0.000,0.000)in
+LIG(230,-125,240,-125)
+LIG(238,-127,240,-125)
+LIG(238,-123,240,-125)
+FSYM
+SYM  #Arrow
+BB(225,-118,235,-112)
+TITLE 225 -120  #ProgCount
+MODEL 935
+PROP                                                                                                                                   
+REC(-5,0,0,0, )
+VIS 4
+PIN(225,-115,0.000,0.000)in
+LIG(225,-115,235,-115)
+LIG(233,-117,235,-115)
+LIG(233,-113,235,-115)
+FSYM
+SYM  #Arrow
+BB(230,-108,240,-102)
+TITLE 230 -110  #LoadOut
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-105,0.000,0.000)in
+LIG(230,-105,240,-105)
+LIG(238,-107,240,-105)
+LIG(238,-103,240,-105)
+FSYM
+SYM  #Arrow
+BB(230,-98,240,-92)
+TITLE 230 -100  #LoadInst
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-95,0.000,0.000)in
+LIG(230,-95,240,-95)
+LIG(238,-97,240,-95)
+LIG(238,-93,240,-95)
+FSYM
+SYM  #Arrow
+BB(230,-28,240,-22)
+TITLE 230 -30  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-25,0.000,0.000)in
+LIG(230,-25,240,-25)
+LIG(238,-27,240,-25)
+LIG(238,-23,240,-25)
+FSYM
+SYM  #Arrow
+BB(230,-78,240,-72)
+TITLE 230 -80  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-75,0.000,0.000)in
+LIG(230,-75,240,-75)
+LIG(238,-77,240,-75)
+LIG(238,-73,240,-75)
+FSYM
+SYM  #Arrow
+BB(230,-68,240,-62)
+TITLE 230 -70  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-65,0.000,0.000)in
+LIG(230,-65,240,-65)
+LIG(238,-67,240,-65)
+LIG(238,-63,240,-65)
+FSYM
+SYM  #Arrow
+BB(230,-58,240,-52)
+TITLE 230 -60  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-55,0.000,0.000)in
+LIG(230,-55,240,-55)
+LIG(238,-57,240,-55)
+LIG(238,-53,240,-55)
+FSYM
+SYM  #Arrow
+BB(230,-48,240,-42)
+TITLE 230 -50  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-45,0.000,0.000)in
+LIG(230,-45,240,-45)
+LIG(238,-47,240,-45)
+LIG(238,-43,240,-45)
+FSYM
+SYM  #Arrow
+BB(230,-38,240,-32)
+TITLE 230 -40  #Clk
+MODEL 935
+PROP                                                                                                                                   
+REC(0,0,0,0, )
+VIS 4
+PIN(230,-35,0.000,0.000)in
+LIG(230,-35,240,-35)
+LIG(238,-37,240,-35)
+LIG(238,-33,240,-35)
+FSYM
+LIG(-5,-175,45,-175)
+LIG(120,-130,120,-125)
+LIG(10,-130,55,-130)
+LIG(-5,-150,35,-150)
+LIG(95,-130,120,-130)
+LIG(190,-25,230,-25)
+LIG(120,-95,150,-95)
+LIG(120,-100,120,-95)
+LIG(120,-125,150,-125)
+LIG(95,-120,120,-120)
+LIG(120,-120,120,-115)
+LIG(120,-115,150,-115)
+LIG(95,-110,120,-110)
+LIG(120,-110,120,-105)
+LIG(120,-105,150,-105)
+LIG(95,-100,120,-100)
+LIG(190,-35,230,-35)
+LIG(55,-120,5,-120)
+LIG(190,-125,230,-125)
+LIG(190,-115,225,-115)
+LIG(190,-105,230,-105)
+LIG(190,-95,230,-95)
+LIG(190,-85,230,-85)
+LIG(190,-75,230,-75)
+LIG(190,-65,230,-65)
+LIG(190,-55,230,-55)
+LIG(190,-45,230,-45)
+FFIG example

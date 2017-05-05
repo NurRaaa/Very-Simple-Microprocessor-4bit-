@@ -1,18 +1,18 @@
-DSCH Ver 3.0
-VERSION 22/12/2004 17:56:55
+DSCH 3.5
+VERSION 4/28/2017 1:59:10 PM
 BB(21,5,124,50)
 SYM  #fullAdder
 BB(45,10,85,50)
 TITLE 55 8  #fullAdder
 MODEL 6000
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(50,15,30,30,r)
 VIS 5
 PIN(45,40,0.000,0.000)C
 PIN(45,30,0.000,0.000)B
 PIN(45,20,0.000,0.000)A
-PIN(85,20,0.060,0.140)Carry
-PIN(85,30,0.030,0.140)Sum
+PIN(85,20,0.060,0.003)Carry
+PIN(85,30,0.030,0.003)Sum
 LIG(45,40,50,40)
 LIG(45,30,50,30)
 LIG(45,20,50,20)
@@ -22,19 +22,19 @@ LIG(50,15,50,45)
 LIG(50,15,80,15)
 LIG(80,15,80,45)
 LIG(80,45,50,45)
-VLG  module fullAdder( C,B,A,Carry,Sum);
-VLG   input C,B,A;
-VLG   output Carry,Sum;
-VLG   xor #(16) xor2_1(w4,A,B);
-VLG   assign Carry=(A&B)|(C&(A|B))
-VLG   xor #(16) xor2_2(Sum,w4,C);
-VLG  endmodule
+VLG module fullAdder( C,B,A,Carry,Sum);
+VLG input C,B,A;
+VLG output Carry,Sum;
+VLG xor #(16) xor2_1(w4,A,B);
+VLG assign Carry=(A&B)|(C&(A|B))
+VLG xor #(16) xor2_2(Sum,w4,C);
+VLG endmodule
 FSYM
 SYM  #button1
 BB(21,16,30,24)
-TITLE 25 20  #button
+TITLE 25 20  #button1
 MODEL 59
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(22,17,6,6,r)
 VIS 1
 PIN(30,20,0.000,0.000)in1
@@ -50,9 +50,9 @@ LIG(22,17,28,17)
 FSYM
 SYM  #button2
 BB(21,26,30,34)
-TITLE 25 30  #button
+TITLE 25 30  #button2
 MODEL 59
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(22,27,6,6,r)
 VIS 1
 PIN(30,30,0.000,0.000)in2
@@ -68,9 +68,9 @@ LIG(22,27,28,27)
 FSYM
 SYM  #button3
 BB(21,36,30,44)
-TITLE 25 40  #button
+TITLE 25 40  #button3
 MODEL 59
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(22,37,6,6,r)
 VIS 1
 PIN(30,40,0.000,0.000)in3
@@ -86,9 +86,9 @@ LIG(22,37,28,37)
 FSYM
 SYM  #light1
 BB(98,5,104,19)
-TITLE 100 19  #light
+TITLE 100 19  #light1
 MODEL 49
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(99,6,4,4,r)
 VIS 1
 PIN(100,20,0.000,0.000)out1
@@ -109,9 +109,9 @@ LIG(102,5,100,5)
 FSYM
 SYM  #light2
 BB(118,15,124,29)
-TITLE 120 29  #light
+TITLE 120 29  #light2
 MODEL 49
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(119,16,4,4,r)
 VIS 1
 PIN(120,30,0.000,0.000)out2
@@ -135,4 +135,4 @@ LIG(30,30,45,30)
 LIG(30,40,45,40)
 LIG(85,20,100,20)
 LIG(85,30,120,30)
-FFIG D:\Documents and Settings\sicard\Mes documents\Dsch3\vsm\fullAdder-test.sch
+FFIG D:\Facultate\VLSI\DSCH3.5\examples\vsm\fullAdder-test.sch

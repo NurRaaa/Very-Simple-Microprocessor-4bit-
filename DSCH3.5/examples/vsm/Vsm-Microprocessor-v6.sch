@@ -1,6 +1,6 @@
-DSCH Ver 3.0
-VERSION 30/12/2004 08:32:43
-BB(-110,95,580,440)
+DSCH 3.5
+VERSION 4/28/2017 1:43:31 PM
+BB(-110,100,580,440)
 SYM  #Arrow
 BB(-110,322,-100,328)
 TITLE -110 320  #Rst
@@ -140,22 +140,22 @@ LIG(175,265,175,345)
 LIG(175,265,205,265)
 LIG(205,265,205,345)
 LIG(205,345,175,345)
-VLG       module VsmAccumulatorA( ClearA,LatchA,A0,A1,A2,A3,EnableA,MainClock,
-VLG        IB3,IB0,IB1,IB2,AluA0,AluA1,AluA2,AluA3);
-VLG        input ClearA,LatchA,A0,A1,A2,A3,EnableA,MainClock;
-VLG        output IB3,IB0,IB1,IB2,AluA0,AluA1,AluA2,AluA3;
-VLG        wire w3,w6,w8,w11,w18,w21,;
-VLG        not #(31) inv_1(w3,ClearA);
-VLG        dreg #(19) dreg17_2(AluA0,w8,A0,w3,w6);
-VLG        dreg #(19) dreg18_3(AluA3,w11,A3,w3,w6);
-VLG        dreg #(19) dreg19_4(AluA2,w18,A2,w3,w6);
-VLG        dreg #(19) dreg20_5(AluA1,w21,A1,w3,w6);
-VLG        notif1 #(10) notif1_6(IB0,w8,EnableA);
-VLG        notif1 #(10) notif1_7(IB1,w21,EnableA);
-VLG        notif1 #(10) notif1_8(IB3,w11,EnableA);
-VLG        notif1 #(10) notif1_9(IB2,w18,EnableA);
-VLG        and #(37) and2_10(w6,MainClock,LatchA);
-VLG       endmodule
+VLG module VsmAccumulatorA( ClearA,LatchA,A0,A1,A2,A3,EnableA,MainClock,
+VLG IB3,IB0,IB1,IB2,AluA0,AluA1,AluA2,AluA3);
+VLG input ClearA,LatchA,A0,A1,A2,A3,EnableA,MainClock;
+VLG output IB3,IB0,IB1,IB2,AluA0,AluA1,AluA2,AluA3;
+VLG wire w3,w6,w8,w11,w18,w21,;
+VLG not #(31) inv_1(w3,ClearA);
+VLG dreg #(19) dreg17_2(AluA0,w8,A0,w3,w6);
+VLG dreg #(19) dreg18_3(AluA3,w11,A3,w3,w6);
+VLG dreg #(19) dreg19_4(AluA2,w18,A2,w3,w6);
+VLG dreg #(19) dreg20_5(AluA1,w21,A1,w3,w6);
+VLG notif1 #(10) notif1_6(IB0,w8,EnableA);
+VLG notif1 #(10) notif1_7(IB1,w21,EnableA);
+VLG notif1 #(10) notif1_8(IB3,w11,EnableA);
+VLG notif1 #(10) notif1_9(IB2,w18,EnableA);
+VLG and #(37) and2_10(w6,MainClock,LatchA);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(-105,132,-95,138)
@@ -180,6 +180,26 @@ PIN(-110,305,0.000,0.000)in
 LIG(-110,305,-100,305)
 LIG(-102,303,-100,305)
 LIG(-102,307,-100,305)
+FSYM
+SYM  #digit1
+BB(420,100,445,135)
+TITLE 420 132  #IB
+MODEL 89
+PROP                                                                                                                                    
+REC(425,105,15,21,r)
+VIS 4
+PIN(425,135,0.000,0.000)IB3
+PIN(430,135,0.000,0.000)IB2
+PIN(435,135,0.000,0.000)IB1
+PIN(440,135,0.000,0.000)IB0
+LIG(420,100,420,130)
+LIG(445,100,420,100)
+LIG(445,130,445,100)
+LIG(420,130,445,130)
+LIG(425,130,425,135)
+LIG(430,130,430,135)
+LIG(435,130,435,135)
+LIG(440,130,440,135)
 FSYM
 SYM  #VsmAccumulatorB
 BB(165,140,205,220)
@@ -214,37 +234,17 @@ LIG(170,145,170,215)
 LIG(170,145,200,145)
 LIG(200,145,200,215)
 LIG(200,215,170,215)
-VLG       module VsmAccumulatorB( ClearB,LatchB,B0,B1,B2,B3,MainClock,AluB3,
-VLG        AluB0,AluB1,AluB2);
-VLG        input ClearB,LatchB,B0,B1,B2,B3,MainClock;
-VLG        output AluB3,AluB0,AluB1,AluB2;
-VLG        not #(31) inv(w2,ClearB);
-VLG        dreg #(12) dreg5(AluB0,w7,B0,w2,w5);
-VLG        dreg #(12) dreg6(AluB3,w9,B3,w2,w5);
-VLG        dreg #(12) dreg7(AluB2,w14,B2,w2,w5);
-VLG        dreg #(12) dreg8(AluB1,w16,B1,w2,w5);
-VLG        and #(37) and2(w5,MainClock,LatchB);
-VLG       endmodule
-FSYM
-SYM  #digit1
-BB(420,95,445,130)
-TITLE 420 127  #IB
-MODEL 89
-PROP                                                                                                                                    
-REC(425,100,15,21,r)
-VIS 4
-PIN(425,130,0.000,0.000)IB3
-PIN(430,130,0.000,0.000)IB2
-PIN(435,130,0.000,0.000)IB1
-PIN(440,130,0.000,0.000)IB0
-LIG(420,95,420,125)
-LIG(445,95,420,95)
-LIG(445,125,445,95)
-LIG(420,125,445,125)
-LIG(425,125,425,130)
-LIG(430,125,430,130)
-LIG(435,125,435,130)
-LIG(440,125,440,130)
+VLG module VsmAccumulatorB( ClearB,LatchB,B0,B1,B2,B3,MainClock,AluB3,
+VLG AluB0,AluB1,AluB2);
+VLG input ClearB,LatchB,B0,B1,B2,B3,MainClock;
+VLG output AluB3,AluB0,AluB1,AluB2;
+VLG not #(31) inv(w2,ClearB);
+VLG dreg #(12) dreg5(AluB0,w7,B0,w2,w5);
+VLG dreg #(12) dreg6(AluB3,w9,B3,w2,w5);
+VLG dreg #(12) dreg7(AluB2,w14,B2,w2,w5);
+VLG dreg #(12) dreg8(AluB1,w16,B1,w2,w5);
+VLG and #(37) and2(w5,MainClock,LatchB);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(455,232,465,238)
@@ -299,40 +299,40 @@ LIG(345,135,345,235)
 LIG(345,135,375,135)
 LIG(375,135,375,235)
 LIG(375,235,345,235)
-VLG       module VsmArithmeticUnit( B0,B1,B2,B3,A0,A1,A2,A3,
-VLG        AddSub,EnableAlu,IB_Alu3,IB_Alu2,IB_Alu1,IB_Alu0,Carry);
-VLG        input B0,B1,B2,B3,A0,A1,A2,A3;
-VLG        input AddSub,EnableAlu;
-VLG        output IB_Alu3,IB_Alu2,IB_Alu1,IB_Alu0,Carry;
-VLG        wire w10,w11,w12,w13,w18,w20,w21,w23;
-VLG        wire w24,w25,w26,w27,w28,w29,w30,w31;
-VLG        wire w33,w34,w35,w36;
-VLG        mux #(24) mux_1(w20,A2,w18,AddSub);
-VLG        not #(10) inv_2(w18,A2);
-VLG        mux #(24) mux_3(w11,A0,w21,AddSub);
-VLG        mux #(24) mux_4(w24,A3,w23,AddSub);
-VLG        not #(10) inv_5(w23,A3);
-VLG        not #(10) inv_6(w25,A1);
-VLG        mux #(24) mux_7(w26,A1,w25,AddSub);
-VLG        not #(10) inv_8(w21,A0);
-VLG        mux #(17) mux_9(w10,vss,vdd,AddSub);
-VLG        bufif1 #(10) bufif1_10(IB_Alu3,w28,EnableAlu);
-VLG        bufif1 #(10) bufif1_11(IB_Alu2,w31,EnableAlu);
-VLG        bufif1 #(10) bufif1_12(IB_Alu1,w30,EnableAlu);
-VLG        bufif1 #(10) bufif1_13(IB_Alu0,w13,EnableAlu);
-VLG        xor #(15) xor2_1_14(w33,B0,w11);
-VLG        assign w12=(B0&w11)|(w10&(B0|w11))
-VLG        xor #(15) xor2_2_15(w13,w33,w10);
-VLG        xor #(15) xor2_1_16(w34,B3,w24);
-VLG        assign Carry=(B3&w24)|(w27&(B3|w24))
-VLG        xor #(15) xor2_2_17(w28,w34,w27);
-VLG        xor #(15) xor2_1_18(w35,B1,w26);
-VLG        assign w29=(B1&w26)|(w12&(B1|w26))
-VLG        xor #(15) xor2_2_19(w30,w35,w12);
-VLG        xor #(15) xor2_1_20(w36,B2,w20);
-VLG        assign w27=(B2&w20)|(w29&(B2|w20))
-VLG        xor #(15) xor2_2_21(w31,w36,w29);
-VLG       endmodule
+VLG module VsmArithmeticUnit( B0,B1,B2,B3,A0,A1,A2,A3,
+VLG AddSub,EnableAlu,IB_Alu3,IB_Alu2,IB_Alu1,IB_Alu0,Carry);
+VLG input B0,B1,B2,B3,A0,A1,A2,A3;
+VLG input AddSub,EnableAlu;
+VLG output IB_Alu3,IB_Alu2,IB_Alu1,IB_Alu0,Carry;
+VLG wire w10,w11,w12,w13,w18,w20,w21,w23;
+VLG wire w24,w25,w26,w27,w28,w29,w30,w31;
+VLG wire w33,w34,w35,w36;
+VLG mux #(24) mux_1(w20,A2,w18,AddSub);
+VLG not #(10) inv_2(w18,A2);
+VLG mux #(24) mux_3(w11,A0,w21,AddSub);
+VLG mux #(24) mux_4(w24,A3,w23,AddSub);
+VLG not #(10) inv_5(w23,A3);
+VLG not #(10) inv_6(w25,A1);
+VLG mux #(24) mux_7(w26,A1,w25,AddSub);
+VLG not #(10) inv_8(w21,A0);
+VLG mux #(17) mux_9(w10,vss,vdd,AddSub);
+VLG bufif1 #(10) bufif1_10(IB_Alu3,w28,EnableAlu);
+VLG bufif1 #(10) bufif1_11(IB_Alu2,w31,EnableAlu);
+VLG bufif1 #(10) bufif1_12(IB_Alu1,w30,EnableAlu);
+VLG bufif1 #(10) bufif1_13(IB_Alu0,w13,EnableAlu);
+VLG xor #(15) xor2_1_14(w33,B0,w11);
+VLG assign w12=(B0&w11)|(w10&(B0|w11))
+VLG xor #(15) xor2_2_15(w13,w33,w10);
+VLG xor #(15) xor2_1_16(w34,B3,w24);
+VLG assign Carry=(B3&w24)|(w27&(B3|w24))
+VLG xor #(15) xor2_2_17(w28,w34,w27);
+VLG xor #(15) xor2_1_18(w35,B1,w26);
+VLG assign w29=(B1&w26)|(w12&(B1|w26))
+VLG xor #(15) xor2_2_19(w30,w35,w12);
+VLG xor #(15) xor2_1_20(w36,B2,w20);
+VLG assign w27=(B2&w20)|(w29&(B2|w20))
+VLG xor #(15) xor2_2_21(w31,w36,w29);
+VLG endmodule
 FSYM
 SYM  #digit3
 BB(555,165,580,200)
@@ -487,27 +487,27 @@ LIG(-70,130,-70,170)
 LIG(-70,130,-40,130)
 LIG(-40,130,-40,170)
 LIG(-40,170,-70,170)
-VLG       module VsmRingCounter4( invClear,Phase_Count,Phase0,Phase1,Phase2,Phase3);
-VLG        input invClear,Phase_Count;
-VLG        output Phase0,Phase1,Phase2,Phase3;
-VLG        wire w3,w4,w6,w8,w9,w11,w12,w14;
-VLG        wire w15,;
-VLG        xor #(16) xor2_1(Phase2,w3,w4);
-VLG        xor #(16) xor2_2(Phase1,w6,w3);
-VLG        dreg #(19) dreg7_3(w6,w11,w8,w9,Phase_Count);
-VLG        dreg #(19) dreg8_4(w12,w8,w4,w9,Phase_Count);
-VLG        dreg #(12) dreg9_5(w4,w14,w3,w9,Phase_Count);
-VLG        dreg #(12) dreg10_6(w3,w15,w6,w9,Phase_Count);
-VLG        not #(31) inv_7(w9,invClear);
-VLG        xor #(16) xor2_8(Phase3,w4,w12);
-VLG        xor #(16) xor2_9(Phase0,w12,w11);
-VLG       endmodule
+VLG module VsmRingCounter4( invClear,Phase_Count,Phase0,Phase1,Phase2,Phase3);
+VLG input invClear,Phase_Count;
+VLG output Phase0,Phase1,Phase2,Phase3;
+VLG wire w3,w4,w6,w8,w9,w11,w12,w14;
+VLG wire w15,;
+VLG xor #(16) xor2_1(Phase2,w3,w4);
+VLG xor #(16) xor2_2(Phase1,w6,w3);
+VLG dreg #(19) dreg7_3(w6,w11,w8,w9,Phase_Count);
+VLG dreg #(19) dreg8_4(w12,w8,w4,w9,Phase_Count);
+VLG dreg #(12) dreg9_5(w4,w14,w3,w9,Phase_Count);
+VLG dreg #(12) dreg10_6(w3,w15,w6,w9,Phase_Count);
+VLG not #(31) inv_7(w9,invClear);
+VLG xor #(16) xor2_8(Phase3,w4,w12);
+VLG xor #(16) xor2_9(Phase0,w12,w11);
+VLG endmodule
 FSYM
 SYM  #VsmOutRegister
 BB(495,205,535,285)
 TITLE 505 203  #VsmOutRegister
 MODEL 6000
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(500,210,30,70,r)
 VIS 5
 PIN(495,275,0.000,0.000)B0
@@ -536,17 +536,17 @@ LIG(500,210,500,280)
 LIG(500,210,530,210)
 LIG(530,210,530,280)
 LIG(530,280,500,280)
-VLG  module VsmOutRegister( B0,B1,B2,B3,MainReset,MainClock,EnableOut,Out1,
-VLG   Out3,Out0,Out2);
-VLG   input B0,B1,B2,B3,MainReset,MainClock,EnableOut;
-VLG   output Out1,Out3,Out0,Out2;
-VLG   wire w4,w14,w15,w16,w17;
-VLG   and #(37) and2_1(w4,MainClock,EnableOut);
-VLG   dreg #(12) dreg1_2(Out2,w14,B2,MainReset,w4);
-VLG   dreg #(12) dreg1_3(Out1,w15,B1,MainReset,w4);
-VLG   dreg #(12) dreg1_4(Out0,w16,B0,MainReset,w4);
-VLG   dreg #(12) dreg1_5(Out3,w17,B3,MainReset,w4);
-VLG  endmodule
+VLG module VsmOutRegister( B0,B1,B2,B3,MainReset,MainClock,EnableOut,Out1,
+VLG Out3,Out0,Out2);
+VLG input B0,B1,B2,B3,MainReset,MainClock,EnableOut;
+VLG output Out1,Out3,Out0,Out2;
+VLG wire w4,w14,w15,w16,w17;
+VLG and #(37) and2_1(w4,MainClock,EnableOut);
+VLG dreg #(12) dreg1_2(Out2,w14,B2,MainReset,w4);
+VLG dreg #(12) dreg1_3(Out1,w15,B1,MainReset,w4);
+VLG dreg #(12) dreg1_4(Out0,w16,B0,MainReset,w4);
+VLG dreg #(12) dreg1_5(Out3,w17,B3,MainReset,w4);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(-80,117,-70,123)
@@ -664,16 +664,16 @@ LIG(380,355,380,405)
 LIG(380,355,410,355)
 LIG(410,355,410,405)
 LIG(410,405,380,405)
-VLG       module VsmInRegister( DataIn0,DataIn1,DataIn2,DataIn3,EnableIn,IB1,IB0,IB2,
-VLG        IB3);
-VLG        input DataIn0,DataIn1,DataIn2,DataIn3,EnableIn;
-VLG        output IB1,IB0,IB2,IB3;
-VLG        wire ;
-VLG        bufif1 #(10) bufif1_1(IB3,DataIn3,EnableIn);
-VLG        bufif1 #(10) bufif1_2(IB0,DataIn0,EnableIn);
-VLG        bufif1 #(10) bufif1_3(IB1,DataIn1,EnableIn);
-VLG        bufif1 #(10) bufif1_4(IB2,DataIn2,EnableIn);
-VLG       endmodule
+VLG module VsmInRegister( DataIn0,DataIn1,DataIn2,DataIn3,EnableIn,IB1,IB0,IB2,
+VLG IB3);
+VLG input DataIn0,DataIn1,DataIn2,DataIn3,EnableIn;
+VLG output IB1,IB0,IB2,IB3;
+VLG wire ;
+VLG bufif1 #(10) bufif1_1(IB3,DataIn3,EnableIn);
+VLG bufif1 #(10) bufif1_2(IB0,DataIn0,EnableIn);
+VLG bufif1 #(10) bufif1_3(IB1,DataIn1,EnableIn);
+VLG bufif1 #(10) bufif1_4(IB2,DataIn2,EnableIn);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(455,222,465,228)
@@ -691,7 +691,7 @@ SYM  #VsmMicroInstruction
 BB(5,125,45,255)
 TITLE 15 118  #VsmMicroInstruction
 MODEL 6000
-PROP                                                                                                                                   
+PROP                                                                                                                                    
 REC(10,130,30,120,r)
 VIS 5
 PIN(5,135,0.000,0.000)Phase3
@@ -738,212 +738,212 @@ LIG(10,130,10,250)
 LIG(10,130,40,130)
 LIG(40,130,40,250)
 LIG(40,250,10,250)
-VLG  module VsmMicroInstruction( Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2,
-VLG   LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu,
-VLG   LoadAlu,AddSub,LoadB,EnableInstr);
-VLG   input Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2;
-VLG   output LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu;
-VLG   output LoadAlu,AddSub,LoadB,EnableInstr;
-VLG   wire w2,w4,w6,w7,w13,w16,w17,w20;
-VLG   wire w23,w26,w28,w29,w30,w34,w35,w36;
-VLG   wire w37,w38,w39,w40,w42,w43;
-VLG   and #(93) and2_1(w4,w2,Phase2);
-VLG   and #(93) and2_2(w6,w2,Phase3);
-VLG   nmos #(101) nmos_3(AddSub,vdd,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_4(ProgCount,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_5(EnableIn,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_6(LoadOut,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_7(LoadOut,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_8(AddSub,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_9(LoadB,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_10(ReadMem,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_11(LoadB,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_12(LoadOut,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_13(LoadInst,vss,w4); // 1.0u 0.12u
-VLG   not #(45) inv_14(w20,InstrIn3);
-VLG   nmos #(101) nmos_15(EnableIn,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_16(LoadInst,vss,w6); // 1.0u 0.12u
-VLG   and #(30) and4_17(w2,InstrIn0,w23,InstrIn2,w20);
-VLG   nmos #(101) nmos_18(LoadB,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_19(AddSub,vdd,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_20(ReadMem,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_21(LoadAlu,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_22(ProgCount,vdd,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_23(LoadInst,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_24(LoadInst,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_25(ProgCount,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_26(ReadMem,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_27(ProgCount,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_28(EnableIn,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_29(LoadB,vdd,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_30(LoadInst,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_31(LoadInst,vdd,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_32(ProgCount,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_33(EnableIn,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_34(ReadMem,vdd,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_35(EnableIn,vss,w26); // 1.0u 0.12u
-VLG   and #(30) and4_36(w29,InstrIn0,InstrIn1,w28,w20);
-VLG   and #(93) and2_37(w26,w29,Phase2);
-VLG   nmos #(101) nmos_38(LoadB,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_39(EnableAlu,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_40(EnableIn,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_41(LoadA,vdd,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_42(LoadA,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_43(EnableA,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_44(EnableA,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_45(LoadA,vss,Phase0); // 1.0u 0.12u
-VLG   and #(93) and2_46(w13,w29,Phase3);
-VLG   nmos #(101) nmos_47(LoadAlu,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_48(EnableAlu,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_49(EnableAlu,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_50(LoadAlu,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_51(EnableA,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_52(EnableA,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_53(LoadA,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_54(LoadA,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_55(LoadAlu,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_56(EnableA,vdd,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_57(EnableAlu,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_58(EnableAlu,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_59(LoadAlu,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_60(AddSub,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_61(AddSub,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_62(LoadOut,vss,Phase1); // 1.0u 0.12u
-VLG   and #(30) and4_63(w35,w34,w23,w28,w20);
-VLG   nmos #(101) nmos_64(LoadOut,vss,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_65(LoadOut,vss,w6); // 1.0u 0.12u
-VLG   not #(24) inv_66(w34,InstrIn0);
-VLG   not #(31) inv_67(w28,InstrIn2);
-VLG   not #(31) inv_68(w23,InstrIn1);
-VLG   and #(93) and2_69(w36,w35,Phase3);
-VLG   and #(93) and2_70(w37,w35,Phase2);
-VLG   nmos #(101) nmos_71(ProgCount,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_72(EnableA,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_73(ProgCount,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_74(ReadMem,vdd,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_75(LoadB,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_76(LoadInst,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_77(LoadInst,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_78(LoadB,vdd,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_79(EnableAlu,vdd,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_80(ReadMem,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_81(LoadA,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_82(ProgCount,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_83(EnableIn,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_84(LoadAlu,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_85(LoadA,vdd,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_86(EnableIn,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_87(LoadA,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_88(EnableA,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_89(EnableA,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_90(LoadA,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_91(LoadAlu,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_92(EnableAlu,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_93(EnableAlu,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_94(LoadAlu,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_95(AddSub,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_96(LoadOut,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_97(LoadOut,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_98(AddSub,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_99(AddSub,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_100(LoadOut,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_101(LoadOut,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_102(AddSub,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_103(LoadAlu,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_104(EnableAlu,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_105(EnableAlu,vdd,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_106(LoadAlu,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_107(LoadA,vdd,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_108(EnableA,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_109(EnableA,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_110(LoadA,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_111(EnableIn,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_112(EnableA,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_113(EnableA,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_114(ReadMem,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_115(LoadB,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_116(EnableIn,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_117(ProgCount,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_118(LoadAlu,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_119(ReadMem,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_120(LoadA,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_121(LoadB,vss,w37); // 1.0u 0.12u
-VLG   and #(30) and4_122(w39,InstrIn0,w23,w28,w20);
-VLG   nmos #(101) nmos_123(LoadInst,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_124(LoadInst,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_125(LoadB,vss,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_126(ReadMem,vss,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_127(EnableAlu,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_128(ProgCount,vss,w38); // 1.0u 0.12u
-VLG   and #(93) and2_129(w30,w39,Phase3);
-VLG   and #(93) and2_130(w38,w39,Phase2);
-VLG   and #(93) and2_131(w17,w40,Phase2);
-VLG   and #(93) and2_132(w7,w40,Phase3);
-VLG   nmos #(101) nmos_133(EnableAlu,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_134(ProgCount,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_135(LoadAlu,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_136(ReadMem,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_137(ReadMem,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_138(EnableInstr,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_139(LoadInst,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_140(LoadInst,vss,w7); // 1.0u 0.12u
-VLG   and #(30) and4_141(w40,w34,InstrIn1,w28,w20);
-VLG   nmos #(101) nmos_142(LoadB,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_143(EnableIn,vss,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_144(ReadMem,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_145(AddSub,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_146(ProgCount,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_147(EnableIn,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_148(LoadB,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_149(AddSub,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_150(AddSub,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_151(LoadOut,vdd,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_152(LoadOut,vdd,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_153(AddSub,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_154(LoadOut,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_155(LoadOut,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_156(AddSub,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_157(LoadAlu,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_158(EnableAlu,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_159(EnableAlu,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_160(LoadAlu,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_161(LoadA,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_162(EnableA,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_163(EnableA,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_164(LoadA,vdd,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_165(EnableIn,vdd,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_166(EnableIn,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_167(ProgCount,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_168(ReadMem,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_169(LoadB,vss,w42); // 1.0u 0.12u
-VLG   and #(30) and4_170(w43,w34,w23,InstrIn2,w20);
-VLG   nmos #(101) nmos_171(LoadInst,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_172(LoadInst,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_173(ReadMem,vss,w16); // 1.0u 0.12u
-VLG   nmos #(101) nmos_174(ProgCount,vss,w16); // 1.0u 0.12u
-VLG   and #(93) and2_175(w42,w43,Phase3);
-VLG   and #(93) and2_176(w16,w43,Phase2);
-VLG   nmos #(101) nmos_177(EnableInstr,vdd,w4); // 1.0u 0.12u
-VLG   nmos #(101) nmos_178(EnableInstr,vss,w6); // 1.0u 0.12u
-VLG   nmos #(101) nmos_179(EnableInstr,vdd,Phase1); // 1.0u 0.12u
-VLG   nmos #(101) nmos_180(EnableInstr,vss,Phase0); // 1.0u 0.12u
-VLG   nmos #(101) nmos_181(EnableInstr,vss,w37); // 1.0u 0.12u
-VLG   nmos #(101) nmos_182(EnableInstr,vss,w36); // 1.0u 0.12u
-VLG   nmos #(101) nmos_183(EnableInstr,vss,w13); // 1.0u 0.12u
-VLG   nmos #(101) nmos_184(EnableInstr,vss,w30); // 1.0u 0.12u
-VLG   nmos #(101) nmos_185(EnableInstr,vdd,w38); // 1.0u 0.12u
-VLG   nmos #(101) nmos_186(EnableInstr,vdd,w17); // 1.0u 0.12u
-VLG   nmos #(101) nmos_187(EnableInstr,vss,w7); // 1.0u 0.12u
-VLG   nmos #(101) nmos_188(EnableInstr,vss,w26); // 1.0u 0.12u
-VLG   nmos #(101) nmos_189(EnableInstr,vss,w42); // 1.0u 0.12u
-VLG   nmos #(101) nmos_190(LoadB,vss,w4); // 1.0u 0.12u
-VLG   probe #(1) probe_191(w35); // 1 Nop(0000)
-VLG   probe #(1) probe_192(w39); // 1 Add(0001)
-VLG   probe #(1) probe_193(w40); // 1 Sub(0010)
-VLG   probe #(1) probe_194(w29); // 1 Out(0011)
-VLG   probe #(1) probe_195(w43); // 1 In(0100)
-VLG   probe #(1) probe_196(w2); // 1 Load(0101)
-VLG  endmodule
+VLG module VsmMicroInstruction( Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2,
+VLG LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu,
+VLG LoadAlu,AddSub,LoadB,EnableInstr);
+VLG input Phase3,Phase1,Phase0,InstrIn0,InstrIn1,InstrIn2,InstrIn3,Phase2;
+VLG output LoadOut,LoadInst,EnableA,EnableIn,LoadA,ReadMem,ProgCount,EnableAlu;
+VLG output LoadAlu,AddSub,LoadB,EnableInstr;
+VLG wire w2,w4,w6,w7,w13,w16,w17,w20;
+VLG wire w23,w26,w28,w29,w30,w34,w35,w36;
+VLG wire w37,w38,w39,w40,w42,w43;
+VLG and #(93) and2_1(w4,w2,Phase2);
+VLG and #(93) and2_2(w6,w2,Phase3);
+VLG nmos #(101) nmos_3(AddSub,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_4(ProgCount,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_5(EnableIn,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_6(LoadOut,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_7(LoadOut,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_8(AddSub,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_9(LoadB,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_10(ReadMem,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_11(LoadB,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_12(LoadOut,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_13(LoadInst,vss,w4); // 1.0u 0.12u
+VLG not #(45) inv_14(w20,InstrIn3);
+VLG nmos #(101) nmos_15(EnableIn,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_16(LoadInst,vss,w6); // 1.0u 0.12u
+VLG and #(30) and4_17(w2,InstrIn0,w23,InstrIn2,w20);
+VLG nmos #(101) nmos_18(LoadB,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_19(AddSub,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_20(ReadMem,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_21(LoadAlu,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_22(ProgCount,vdd,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_23(LoadInst,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_24(LoadInst,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_25(ProgCount,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_26(ReadMem,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_27(ProgCount,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_28(EnableIn,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_29(LoadB,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_30(LoadInst,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_31(LoadInst,vdd,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_32(ProgCount,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_33(EnableIn,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_34(ReadMem,vdd,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_35(EnableIn,vss,w26); // 1.0u 0.12u
+VLG and #(30) and4_36(w29,InstrIn0,InstrIn1,w28,w20);
+VLG and #(93) and2_37(w26,w29,Phase2);
+VLG nmos #(101) nmos_38(LoadB,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_39(EnableAlu,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_40(EnableIn,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_41(LoadA,vdd,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_42(LoadA,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_43(EnableA,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_44(EnableA,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_45(LoadA,vss,Phase0); // 1.0u 0.12u
+VLG and #(93) and2_46(w13,w29,Phase3);
+VLG nmos #(101) nmos_47(LoadAlu,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_48(EnableAlu,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_49(EnableAlu,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_50(LoadAlu,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_51(EnableA,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_52(EnableA,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_53(LoadA,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_54(LoadA,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_55(LoadAlu,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_56(EnableA,vdd,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_57(EnableAlu,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_58(EnableAlu,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_59(LoadAlu,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_60(AddSub,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_61(AddSub,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_62(LoadOut,vss,Phase1); // 1.0u 0.12u
+VLG and #(30) and4_63(w35,w34,w23,w28,w20);
+VLG nmos #(101) nmos_64(LoadOut,vss,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_65(LoadOut,vss,w6); // 1.0u 0.12u
+VLG not #(24) inv_66(w34,InstrIn0);
+VLG not #(31) inv_67(w28,InstrIn2);
+VLG not #(31) inv_68(w23,InstrIn1);
+VLG and #(93) and2_69(w36,w35,Phase3);
+VLG and #(93) and2_70(w37,w35,Phase2);
+VLG nmos #(101) nmos_71(ProgCount,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_72(EnableA,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_73(ProgCount,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_74(ReadMem,vdd,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_75(LoadB,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_76(LoadInst,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_77(LoadInst,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_78(LoadB,vdd,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_79(EnableAlu,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_80(ReadMem,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_81(LoadA,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_82(ProgCount,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_83(EnableIn,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_84(LoadAlu,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_85(LoadA,vdd,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_86(EnableIn,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_87(LoadA,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_88(EnableA,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_89(EnableA,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_90(LoadA,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_91(LoadAlu,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_92(EnableAlu,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_93(EnableAlu,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_94(LoadAlu,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_95(AddSub,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_96(LoadOut,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_97(LoadOut,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_98(AddSub,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_99(AddSub,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_100(LoadOut,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_101(LoadOut,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_102(AddSub,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_103(LoadAlu,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_104(EnableAlu,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_105(EnableAlu,vdd,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_106(LoadAlu,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_107(LoadA,vdd,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_108(EnableA,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_109(EnableA,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_110(LoadA,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_111(EnableIn,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_112(EnableA,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_113(EnableA,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_114(ReadMem,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_115(LoadB,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_116(EnableIn,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_117(ProgCount,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_118(LoadAlu,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_119(ReadMem,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_120(LoadA,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_121(LoadB,vss,w37); // 1.0u 0.12u
+VLG and #(30) and4_122(w39,InstrIn0,w23,w28,w20);
+VLG nmos #(101) nmos_123(LoadInst,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_124(LoadInst,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_125(LoadB,vss,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_126(ReadMem,vss,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_127(EnableAlu,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_128(ProgCount,vss,w38); // 1.0u 0.12u
+VLG and #(93) and2_129(w30,w39,Phase3);
+VLG and #(93) and2_130(w38,w39,Phase2);
+VLG and #(93) and2_131(w17,w40,Phase2);
+VLG and #(93) and2_132(w7,w40,Phase3);
+VLG nmos #(101) nmos_133(EnableAlu,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_134(ProgCount,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_135(LoadAlu,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_136(ReadMem,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_137(ReadMem,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_138(EnableInstr,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_139(LoadInst,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_140(LoadInst,vss,w7); // 1.0u 0.12u
+VLG and #(30) and4_141(w40,w34,InstrIn1,w28,w20);
+VLG nmos #(101) nmos_142(LoadB,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_143(EnableIn,vss,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_144(ReadMem,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_145(AddSub,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_146(ProgCount,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_147(EnableIn,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_148(LoadB,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_149(AddSub,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_150(AddSub,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_151(LoadOut,vdd,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_152(LoadOut,vdd,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_153(AddSub,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_154(LoadOut,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_155(LoadOut,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_156(AddSub,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_157(LoadAlu,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_158(EnableAlu,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_159(EnableAlu,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_160(LoadAlu,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_161(LoadA,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_162(EnableA,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_163(EnableA,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_164(LoadA,vdd,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_165(EnableIn,vdd,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_166(EnableIn,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_167(ProgCount,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_168(ReadMem,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_169(LoadB,vss,w42); // 1.0u 0.12u
+VLG and #(30) and4_170(w43,w34,w23,InstrIn2,w20);
+VLG nmos #(101) nmos_171(LoadInst,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_172(LoadInst,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_173(ReadMem,vss,w16); // 1.0u 0.12u
+VLG nmos #(101) nmos_174(ProgCount,vss,w16); // 1.0u 0.12u
+VLG and #(93) and2_175(w42,w43,Phase3);
+VLG and #(93) and2_176(w16,w43,Phase2);
+VLG nmos #(101) nmos_177(EnableInstr,vdd,w4); // 1.0u 0.12u
+VLG nmos #(101) nmos_178(EnableInstr,vss,w6); // 1.0u 0.12u
+VLG nmos #(101) nmos_179(EnableInstr,vdd,Phase1); // 1.0u 0.12u
+VLG nmos #(101) nmos_180(EnableInstr,vss,Phase0); // 1.0u 0.12u
+VLG nmos #(101) nmos_181(EnableInstr,vss,w37); // 1.0u 0.12u
+VLG nmos #(101) nmos_182(EnableInstr,vss,w36); // 1.0u 0.12u
+VLG nmos #(101) nmos_183(EnableInstr,vss,w13); // 1.0u 0.12u
+VLG nmos #(101) nmos_184(EnableInstr,vss,w30); // 1.0u 0.12u
+VLG nmos #(101) nmos_185(EnableInstr,vdd,w38); // 1.0u 0.12u
+VLG nmos #(101) nmos_186(EnableInstr,vdd,w17); // 1.0u 0.12u
+VLG nmos #(101) nmos_187(EnableInstr,vss,w7); // 1.0u 0.12u
+VLG nmos #(101) nmos_188(EnableInstr,vss,w26); // 1.0u 0.12u
+VLG nmos #(101) nmos_189(EnableInstr,vss,w42); // 1.0u 0.12u
+VLG nmos #(101) nmos_190(LoadB,vss,w4); // 1.0u 0.12u
+VLG probe #(1) probe_191(w35); // 1 Nop(0000)
+VLG probe #(1) probe_192(w39); // 1 Add(0001)
+VLG probe #(1) probe_193(w40); // 1 Sub(0010)
+VLG probe #(1) probe_194(w29); // 1 Out(0011)
+VLG probe #(1) probe_195(w43); // 1 In(0100)
+VLG probe #(1) probe_196(w2); // 1 Load(0101)
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(-80,102,-70,108)
@@ -1152,29 +1152,29 @@ LIG(65,315,65,435)
 LIG(65,315,95,315)
 LIG(95,315,95,435)
 LIG(95,435,65,435)
-VLG       module VsmInstructionReg( ClearInstrReg,LatchInstrReg,Data0,Data1,Data2,Data3,Instr0,Instr1,
-VLG        Instr2,Instr3,MainClock,EnableInstrReg,IB3,IB0,IB1,IB2,
-VLG        ToInstr0,ToInstr1,ToInstr2,ToInstr3);
-VLG        input ClearInstrReg,LatchInstrReg,Data0,Data1,Data2,Data3,Instr0,Instr1;
-VLG        input Instr2,Instr3,MainClock,EnableInstrReg;
-VLG        output IB3,IB0,IB1,IB2,ToInstr0,ToInstr1,ToInstr2,ToInstr3;
-VLG        wire w3,w6,w7,w8,w10,w11,w17,w18;
-VLG        wire w20,w21,w32,w33,w34,w35;
-VLG        not #(59) inv_1(w3,ClearInstrReg);
-VLG        dreg #(19) dreg1_2(w7,w8,Data1,w3,w6);
-VLG        dreg #(19) dreg2_3(w10,w11,Data2,w3,w6);
-VLG        dreg #(19) dreg3_4(w17,w18,Data3,w3,w6);
-VLG        dreg #(19) dreg4_5(w20,w21,Data0,w3,w6);
-VLG        notif1 #(10) notif1_6(IB0,w21,EnableInstrReg);
-VLG        notif1 #(10) notif1_7(IB1,w8,EnableInstrReg);
-VLG        notif1 #(10) notif1_8(IB3,w18,EnableInstrReg);
-VLG        notif1 #(10) notif1_9(IB2,w11,EnableInstrReg);
-VLG        and #(65) and2_10(w6,MainClock,LatchInstrReg);
-VLG        dreg #(12) dreg5_11(ToInstr0,w32,Instr0,w3,w6);
-VLG        dreg #(12) dreg6_12(ToInstr3,w33,Instr3,w3,w6);
-VLG        dreg #(12) dreg7_13(ToInstr2,w34,Instr2,w3,w6);
-VLG        dreg #(12) dreg8_14(ToInstr1,w35,Instr1,w3,w6);
-VLG       endmodule
+VLG module VsmInstructionReg( ClearInstrReg,LatchInstrReg,Data0,Data1,Data2,Data3,Instr0,Instr1,
+VLG Instr2,Instr3,MainClock,EnableInstrReg,IB3,IB0,IB1,IB2,
+VLG ToInstr0,ToInstr1,ToInstr2,ToInstr3);
+VLG input ClearInstrReg,LatchInstrReg,Data0,Data1,Data2,Data3,Instr0,Instr1;
+VLG input Instr2,Instr3,MainClock,EnableInstrReg;
+VLG output IB3,IB0,IB1,IB2,ToInstr0,ToInstr1,ToInstr2,ToInstr3;
+VLG wire w3,w6,w7,w8,w10,w11,w17,w18;
+VLG wire w20,w21,w32,w33,w34,w35;
+VLG not #(59) inv_1(w3,ClearInstrReg);
+VLG dreg #(19) dreg1_2(w7,w8,Data1,w3,w6);
+VLG dreg #(19) dreg2_3(w10,w11,Data2,w3,w6);
+VLG dreg #(19) dreg3_4(w17,w18,Data3,w3,w6);
+VLG dreg #(19) dreg4_5(w20,w21,Data0,w3,w6);
+VLG notif1 #(10) notif1_6(IB0,w21,EnableInstrReg);
+VLG notif1 #(10) notif1_7(IB1,w8,EnableInstrReg);
+VLG notif1 #(10) notif1_8(IB3,w18,EnableInstrReg);
+VLG notif1 #(10) notif1_9(IB2,w11,EnableInstrReg);
+VLG and #(65) and2_10(w6,MainClock,LatchInstrReg);
+VLG dreg #(12) dreg5_11(ToInstr0,w32,Instr0,w3,w6);
+VLG dreg #(12) dreg6_12(ToInstr3,w33,Instr3,w3,w6);
+VLG dreg #(12) dreg7_13(ToInstr2,w34,Instr2,w3,w6);
+VLG dreg #(12) dreg8_14(ToInstr1,w35,Instr1,w3,w6);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(140,267,150,273)
@@ -1240,17 +1240,17 @@ LIG(-85,300,-85,340)
 LIG(-85,300,-55,300)
 LIG(-55,300,-55,340)
 LIG(-55,340,-85,340)
-VLG       module VsmCounter16( MainClock,ClearCounter,EnableCount,PC3,PC2,PC1,PC0);
-VLG        input MainClock,ClearCounter,EnableCount;
-VLG        output PC3,PC2,PC1,PC0;
-VLG        wire w5,w6,w7,w9,w11,w13,;
-VLG        dreg #(19) dreg_1(PC0,w5,w5,w6,w7);
-VLG        dreg #(19) dreg_2(PC1,w9,w9,w6,PC0);
-VLG        dreg #(19) dreg_3(PC2,w11,w11,w6,PC1);
-VLG        dreg #(19) dreg_4(PC3,w13,w13,w6,PC2);
-VLG        and #(16) and2_5(w7,EnableCount,MainClock);
-VLG        not #(31) inv_6(w6,ClearCounter);
-VLG       endmodule
+VLG module VsmCounter16( MainClock,ClearCounter,EnableCount,PC3,PC2,PC1,PC0);
+VLG input MainClock,ClearCounter,EnableCount;
+VLG output PC3,PC2,PC1,PC0;
+VLG wire w5,w6,w7,w9,w11,w13,;
+VLG dreg #(19) dreg_1(PC0,w5,w5,w6,w7);
+VLG dreg #(19) dreg_2(PC1,w9,w9,w6,PC0);
+VLG dreg #(19) dreg_3(PC2,w11,w11,w6,PC1);
+VLG dreg #(19) dreg_4(PC3,w13,w13,w6,PC2);
+VLG and #(16) and2_5(w7,EnableCount,MainClock);
+VLG not #(31) inv_6(w6,ClearCounter);
+VLG endmodule
 FSYM
 SYM  #Arrow
 BB(-25,277,-15,283)
@@ -1406,14 +1406,14 @@ LIG(140,300,170,300)
 LIG(205,160,340,160)
 LIG(380,150,430,150)
 LIG(205,150,340,150)
-LIG(430,130,430,150)
+LIG(430,135,430,150)
 LIG(150,190,165,190)
 LIG(145,200,165,200)
 LIG(140,210,165,210)
 LIG(155,180,165,180)
-LIG(435,130,435,160)
+LIG(435,135,435,160)
 LIG(380,160,435,160)
-LIG(440,130,440,170)
+LIG(440,135,440,170)
 LIG(380,170,440,170)
 LIG(240,235,240,420)
 LIG(150,330,170,330)
@@ -1435,7 +1435,7 @@ LIG(435,265,435,290)
 LIG(570,235,535,235)
 LIG(440,275,440,300)
 LIG(340,140,290,140)
-LIG(425,130,425,140)
+LIG(425,135,425,245)
 LIG(535,215,560,215)
 LIG(455,235,495,235)
 LIG(495,225,455,225)
@@ -1448,7 +1448,7 @@ LIG(535,245,575,245)
 LIG(570,200,570,235)
 LIG(475,215,495,215)
 LIG(425,245,425,270)
-LIG(425,140,425,245)
+LIG(425,135,425,245)
 LIG(560,200,560,215)
 LIG(575,200,575,245)
 LIG(565,200,565,225)
@@ -1566,4 +1566,4 @@ LIG(45,245,85,245)
 LIG(120,175,120,160)
 TEXT 99 107  #Very simple microprocessor
 TEXT 98 121  #Etienne Sicard, Dec 04
-FFIG D:\Documents and Settings\sicard\Mes documents\Dsch3\vsm\Vsm-Microprocessor-v6.sch
+FFIG D:\Facultate\VLSI\DSCH3.5\examples\vsm\Vsm-Microprocessor-v6.sch

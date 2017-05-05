@@ -1,5 +1,5 @@
-DSCH Ver 3.0
-VERSION 03/01/2005 10:45:32
+DSCH 3.5
+VERSION 3/31/2017 10:12:11 AM
 BB(6,-5,139,75)
 SYM  #button3
 BB(6,26,15,34)
@@ -88,7 +88,7 @@ LIG(46,5,45,8)
 LIG(45,8,43,12)
 LIG(35,0,44,0)
 LIG(35,10,44,10)
-VLG        xor xor2(out,a,b);
+VLG xor xor2(out,a,b);
 FSYM
 SYM  #complex3
 BB(50,45,90,75)
@@ -133,7 +133,7 @@ LIG(72,54,74,55)
 LIG(69,57,67,58)
 LIG(70,54,72,54)
 LIG(67,58,64,58)
-VLG     s=(a&b)|(c&(a|b))
+VLG s=(a&b)|(c&(a|b))
 FSYM
 SYM  #light1
 BB(133,45,139,59)
@@ -214,7 +214,7 @@ LIG(81,10,80,13)
 LIG(80,13,78,17)
 LIG(70,5,79,5)
 LIG(70,15,79,15)
-VLG        xor xor2(out,a,b);
+VLG xor xor2(out,a,b);
 FSYM
 CNC(30 0)
 CNC(25 15)
@@ -236,4 +236,4 @@ LIG(20,30,70,30)
 LIG(30,50,50,50)
 LIG(20,30,20,70)
 LIG(20,70,50,70)
-FFIG D:\Documents and Settings\sicard\Mes documents\Dsch3\vsm\Vsm-fullAdder.sch
+FFIG D:\Facultate\VLSI\DSCH3.5\examples\vsm\Vsm-fullAdder.sch

@@ -1,5 +1,5 @@
 DSCH 3.5
-VERSION 3/10/2017 2:56:21 PM
+VERSION 4/29/2017 12:19:07 PM
 BB(-110,95,580,440)
 SYM  #Arrow
 BB(-110,322,-100,328)
@@ -101,8 +101,9 @@ SYM  #VsmAccumulatorA
 BB(170,260,210,350)
 TITLE 180 252  #VsmAccumulatorA
 MODEL 6000
-PROP                                                                                                                                    
-REC(175,265,30,80,r)
+PROP   
+REC(175,265,30,80,r)                                                                                                                                
+REC(0,0,0,0, )
 VIS 69
 PIN(170,300,0.000,0.000)ClearA
 PIN(170,280,0.000,0.000)LatchA
@@ -1077,7 +1078,8 @@ SYM  #Arrow
 BB(40,327,50,333)
 TITLE 40 325  #LoadInst
 MODEL 935
-PROP                                                                                                                                    
+PROP   
+REC(0,0,0,0, )                                                                                                                               
 REC(0,0,0,0, )
 VIS 4
 PIN(40,330,0.000,0.000)in

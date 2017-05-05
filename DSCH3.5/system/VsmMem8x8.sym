@@ -1,0 +1,104 @@
+USER SYMBOL by DSCH 3.5
+DATE 5/5/2017 3:47:09 PM
+SYM  #VsmMem8x8
+BB(0,0,40,100)
+TITLE 10 -7  #VsmMem8x8
+MODEL 6000
+REC(5,5,30,90)
+PIN(0,60,0.00,0.00)Mem_In0
+PIN(0,50,0.00,0.00)Mem_In1
+PIN(0,40,0.00,0.00)Mem_In2
+PIN(0,30,0.00,0.00)Mem_In3
+PIN(0,70,0.00,0.00)MemAddr2
+PIN(0,20,0.00,0.00)ReadMem
+PIN(0,90,0.00,0.00)MemAddr0
+PIN(0,80,0.00,0.00)MemAddr1
+PIN(0,10,0.00,0.00)WriteMem
+PIN(40,10,2.00,1.00)O7
+PIN(40,70,2.00,1.00)O1
+PIN(40,60,2.00,1.00)O2
+PIN(40,50,2.00,1.00)O3
+PIN(40,40,2.00,1.00)O4
+PIN(40,30,2.00,1.00)O5
+PIN(40,20,2.00,1.00)O6
+PIN(40,80,2.00,1.00)O0
+LIG(0,60,5,60)
+LIG(0,50,5,50)
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,70,5,70)
+LIG(0,20,5,20)
+LIG(0,90,5,90)
+LIG(0,80,5,80)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(35,70,40,70)
+LIG(35,60,40,60)
+LIG(35,50,40,50)
+LIG(35,40,40,40)
+LIG(35,30,40,30)
+LIG(35,20,40,20)
+LIG(35,80,40,80)
+LIG(5,5,5,95)
+LIG(5,5,35,5)
+LIG(35,5,35,95)
+LIG(35,95,5,95)
+VLG module VsmMem8x8( Mem_In0,Mem_In1,Mem_In2,Mem_In3,MemAddr2,ReadMem,MemAddr0,MemAddr1,
+VLG  WriteMem,O7,O1,O2,O3,O4,O5,O6,
+VLG  O0);
+VLG  input Mem_In0,Mem_In1,Mem_In2,Mem_In3,MemAddr2,ReadMem,MemAddr0,MemAddr1;
+VLG  input WriteMem;
+VLG  output O7,O1,O2,O3,O4,O5,O6,O0;
+VLG  wire w7,w8,w9,w10,w11,w13,w14,w15;
+VLG  wire w16,w17,w18,w25,w26,w27,w28,w29;
+VLG  wire w30,w32,w33,w34,w35,w36,w38,w41;
+VLG  wire w43,w44,w48,w49,w50,w51,w53,w54;
+VLG  wire w55,w56,w57,w58,w59,w60,w61,w62;
+VLG  wire w63,w64,w65,w66,w67,w68,w69,w70;
+VLG  wire w71,w72;
+VLG  not #(6) inv_1(w7,MemAddr1);
+VLG  not #(7) inv_2(w13,MemAddr0);
+VLG  and #(19) and2_3(O6,w17,w18);
+VLG  and #(18) and2_4(w26,w25,w18);
+VLG  and #(18) and2_5(w29,w27,w28);
+VLG  and #(18) and2_6(O3,w17,w30);
+VLG  and #(19) and3_7(w25,w32,w33,w34);
+VLG  and #(18) and3_8(w36,w13,MemAddr1,w35);
+VLG  and #(18) and3_9(w30,MemAddr0,MemAddr1,w35);
+VLG  and #(18) and2_10(O2,w17,w36);
+VLG  and #(18) and3_11(w38,MemAddr0,w7,w35);
+VLG  and #(18) and2_12(O1,w17,w38);
+VLG  and #(18) and2_13(w41,WriteMem,w25);
+VLG  not #(7) inv_14(w35,MemAddr2);
+VLG  and #(18) and2_15(w44,w43,w18);
+VLG  and #(19) and3_16(w18,MemAddr0,MemAddr1,MemAddr2);
+VLG  and #(18) and3_17(w51,w48,w49,w50);
+VLG  and #(19) and2_18(O7,w17,w18);
+VLG  and #(19) and3_19(w18,w13,MemAddr1,MemAddr2);
+VLG  pmos #(9) pmos_1_20(w59,w58,w9); //  
+VLG  not #(9) inv_2_21(w58,w60);
+VLG  not #(5) inv_3_22(w60,w59);
+VLG  nmos #(9) nmos_4_23(w59,w8,w9); //  
+VLG  nmos #(6) nmos_5_24(w11,w58,w10); //  
+VLG  pmos #(9) pmos_1_25(w62,w61,w15); //  
+VLG  not #(9) inv_2_26(w61,w63);
+VLG  not #(5) inv_3_27(w63,w62);
+VLG  nmos #(9) nmos_4_28(w62,w14,w15); //  
+VLG  nmos #(6) nmos_5_29(w11,w61,w16); //  
+VLG  pmos #(9) pmos_1_30(w65,w64,O0); //  
+VLG  not #(9) inv_2_31(w64,w66);
+VLG  not #(5) inv_3_32(w66,w65);
+VLG  nmos #(9) nmos_4_33(w65,w8,O0); //  
+VLG  nmos #(6) nmos_5_34(w11,w64,w53); //  
+VLG  pmos #(9) pmos_1_35(w68,w67,O7); //  
+VLG  not #(9) inv_2_36(w67,w69);
+VLG  not #(5) inv_3_37(w69,w68);
+VLG  nmos #(9) nmos_4_38(w68,w54,O7); //  
+VLG  nmos #(6) nmos_5_39(w11,w67,w55); //  
+VLG  pmos #(9) pmos_1_40(w71,w70,O6); //  
+VLG  not #(9) inv_2_41(w70,w72);
+VLG  not #(5) inv_3_42(w72,w71);
+VLG  nmos #(9) nmos_4_43(w71,w56,O6); //  
+VLG  nmos #(6) nmos_5_44(w11,w70,w57); //  
+VLG endmodule
+FSYM

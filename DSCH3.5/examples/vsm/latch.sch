@@ -1,16 +1,16 @@
-DSCH Ver 3.0
-VERSION 23/12/2004 00:00:50
-BB(36,-30,174,64)
+DSCH 3.5
+VERSION 4/28/2017 2:18:20 PM
+BB(36,-30,220,64)
 SYM  #pmos
 BB(110,40,130,60)
-TITLE 115 45  #pmos
+TITLE 115 45  #pmos_1
 MODEL 902
 PROP   2.0u 0.12u                                                                                                                                
 REC(110,40,15,19,r)
 VIS 0
 PIN(130,40,0.000,0.000)s
 PIN(120,60,0.000,0.000)g
-PIN(110,40,0.030,0.140)d
+PIN(110,40,0.030,0.003)d
 LIG(120,60,120,54)
 LIG(120,52,120,52)
 LIG(114,50,126,50)
@@ -19,45 +19,45 @@ LIG(126,40,126,48)
 LIG(130,40,126,40)
 LIG(114,40,114,48)
 LIG(110,40,114,40)
-VLG    pmos pmos(drain,source,gate);
+VLG pmos pmos(drain,source,gate);
 FSYM
 SYM  #inv
 BB(120,0,155,20)
-TITLE 135 10  #~
+TITLE 135 10  #inv_2
 MODEL 101
 PROP                                                                                                                                    
 REC(-195,35,0,0,)
 VIS 0
 PIN(120,10,0.000,0.000)in
-PIN(155,10,0.030,0.140)out
+PIN(155,10,0.030,0.003)out
 LIG(120,10,130,10)
 LIG(130,0,130,20)
 LIG(130,0,145,10)
 LIG(130,20,145,10)
 LIG(147,10,147,10)
 LIG(149,10,155,10)
-VLG    not not1(out,in);
+VLG not not1(out,in);
 FSYM
 SYM  #inv
 BB(85,0,120,20)
-TITLE 100 10  #~
+TITLE 100 10  #inv_3
 MODEL 101
 PROP                                                                                                                                    
 REC(-195,35,0,0,)
 VIS 0
 PIN(85,10,0.000,0.000)in
-PIN(120,10,0.030,0.140)out
+PIN(120,10,0.030,0.003)out
 LIG(85,10,95,10)
 LIG(95,0,95,20)
 LIG(95,0,110,10)
 LIG(95,20,110,10)
 LIG(112,10,112,10)
 LIG(114,10,120,10)
-VLG    not not1(out,in);
+VLG not not1(out,in);
 FSYM
 SYM  #light7c
 BB(168,-5,174,9)
-TITLE 170 9  #light
+TITLE 170 9  #light1
 MODEL 49
 PROP                                                                                                                                    
 REC(169,-4,4,4,r)
@@ -80,14 +80,14 @@ LIG(172,-5,170,-5)
 FSYM
 SYM  #nmos
 BB(55,10,75,30)
-TITLE 60 15  #nmos
+TITLE 60 15  #nmos_4
 MODEL 901
 PROP   1.0u 0.12u                                                                                                                                
 REC(55,10,15,19,r)
 VIS 0
 PIN(55,10,0.000,0.000)s
 PIN(65,30,0.000,0.000)g
-PIN(75,10,0.030,0.140)d
+PIN(75,10,0.030,0.003)d
 LIG(65,20,65,30)
 LIG(59,20,71,20)
 LIG(59,18,71,18)
@@ -95,29 +95,29 @@ LIG(71,10,71,18)
 LIG(75,10,71,10)
 LIG(59,10,59,18)
 LIG(55,10,59,10)
-VLG    nmos nmos(drain,source,gate);
+VLG nmos nmos(drain,source,gate);
 FSYM
 SYM  #button5
-BB(36,6,45,14)
-TITLE 40 10  #button
+BB(36,-4,45,4)
+TITLE 40 0  #button1
 MODEL 59
 PROP                                                                                                                                    
-REC(37,7,6,6,r)
+REC(37,-3,6,6,r)
 VIS 1
-PIN(45,10,0.000,0.000)Data
-LIG(44,10,45,10)
-LIG(36,14,36,6)
-LIG(44,14,36,14)
-LIG(44,6,44,14)
-LIG(36,6,44,6)
-LIG(37,13,37,7)
-LIG(43,13,37,13)
-LIG(43,7,43,13)
-LIG(37,7,43,7)
+PIN(45,0,0.000,0.000)Data
+LIG(44,0,45,0)
+LIG(36,4,36,-4)
+LIG(44,4,36,4)
+LIG(44,-4,44,4)
+LIG(36,-4,44,-4)
+LIG(37,3,37,-3)
+LIG(43,3,37,3)
+LIG(43,-3,43,3)
+LIG(37,-3,43,-3)
 FSYM
 SYM  #button4cc
 BB(36,56,45,64)
-TITLE 40 60  #button
+TITLE 40 60  #button2
 MODEL 59
 PROP                                                                                                                                    
 REC(37,57,6,6,r)
@@ -135,7 +135,7 @@ LIG(37,57,43,57)
 FSYM
 SYM  #light8c
 BB(168,-30,174,-16)
-TITLE 170 -16  #light
+TITLE 170 -16  #light2
 MODEL 49
 PROP                                                                                                                                    
 REC(169,-29,4,4,r)
@@ -156,6 +156,61 @@ LIG(174,-22,174,-24)
 LIG(170,-30,169,-29)
 LIG(172,-30,170,-30)
 FSYM
+SYM  #button
+BB(171,26,180,34)
+TITLE 175 30  #button3
+MODEL 59
+PROP                                                                                                                                   
+REC(172,27,6,6,r)
+VIS 1
+PIN(180,30,0.000,0.000)in3
+LIG(179,30,180,30)
+LIG(171,34,171,26)
+LIG(179,34,171,34)
+LIG(179,26,179,34)
+LIG(171,26,179,26)
+LIG(172,33,172,27)
+LIG(178,33,172,33)
+LIG(178,27,178,33)
+LIG(172,27,178,27)
+FSYM
+SYM  #button
+BB(171,41,180,49)
+TITLE 175 45  #button4
+MODEL 59
+PROP                                                                                                                                   
+REC(172,42,6,6,r)
+VIS 1
+PIN(180,45,0.000,0.000)in4
+LIG(179,45,180,45)
+LIG(171,49,171,41)
+LIG(179,49,171,49)
+LIG(179,41,179,49)
+LIG(171,41,179,41)
+LIG(172,48,172,42)
+LIG(178,48,172,48)
+LIG(178,42,178,48)
+LIG(172,42,178,42)
+FSYM
+SYM  #nmos
+BB(200,15,220,35)
+TITLE 215 30  #nmos_5
+MODEL 901
+PROP   0.3u 0.05u MN                                                                                                                              
+REC(200,16,15,19,r)
+VIS 0
+PIN(200,35,0.000,0.000)s
+PIN(210,15,0.000,0.000)g
+PIN(220,35,0.003,0.000)d
+LIG(210,25,210,15)
+LIG(204,25,216,25)
+LIG(204,27,216,27)
+LIG(216,35,216,27)
+LIG(220,35,216,35)
+LIG(204,35,204,27)
+LIG(200,35,204,35)
+VLG nmos nmos(drain,source,gate);
+FSYM
 CNC(65 60)
 LIG(155,10,170,10)
 LIG(65,60,120,60)
@@ -167,6 +222,6 @@ LIG(85,40,110,40)
 LIG(85,10,85,40)
 LIG(75,10,85,10)
 LIG(120,10,120,-15)
-LIG(45,10,55,10)
+LIG(45,10,45,0)
 LIG(120,-15,170,-15)
-FFIG D:\Documents and Settings\sicard\Mes documents\Dsch3\vsm\latch.sch
+FFIG D:\Facultate\VLSI\DSCH3.5\examples\vsm\latch.sch
